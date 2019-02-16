@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>sql-d</id>
+        <version>1.0.2</version>
+        <title>HTTP interface for Sqlite</title>
+        <authors>RealOrko</authors>
+        <owners>RealOrko</owners>
+        <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
+        <projectUrl>https://github.com/RealOrko/sql-d</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>HTTP interface for Sqlite</description>
+        <copyright>Copyright 2019 RealOrko</copyright>
+        <tags>http, sqld, sql-d, sqlite</tags>
+        <dependencies>
+            <group targetFramework=".NETCoreApp2.2">
+                <dependency id="Microsoft.AspNetCore" version="2.2.0" exclude="Build,Analyzers" />
+                <dependency id="Microsoft.AspNetCore.Cors" version="2.2.0" exclude="Build,Analyzers" />
+                <dependency id="Microsoft.AspNetCore.Hosting" version="2.2.0" exclude="Build,Analyzers" />
+                <dependency id="Microsoft.AspNetCore.Mvc" version="2.2.0" exclude="Build,Analyzers" />
+                <dependency id="Microsoft.AspNetCore.Mvc.Razor" version="2.2.0" exclude="Build,Analyzers" />
+                <dependency id="Microsoft.AspNetCore.Mvc.ViewFeatures" version="2.2.0" exclude="Build,Analyzers" />
+                <dependency id="Microsoft.AspNetCore.StaticFiles" version="2.2.0" exclude="Build,Analyzers" />
+                <dependency id="Microsoft.Build.Tasks.Core" version="15.9.20" exclude="Build,Analyzers" />
+                <dependency id="Microsoft.Extensions.Configuration" version="2.2.0" exclude="Build,Analyzers" />
+                <dependency id="NSwag.Annotations" version="12.0.14" exclude="Build,Analyzers" />
+                <dependency id="NSwag.AspNetCore" version="12.0.14" exclude="Build,Analyzers" />
+                <dependency id="Newtonsoft.Json" version="12.0.1" exclude="Build,Analyzers" />
+                <dependency id="System.Data.SQLite.Core" version="1.0.109.2" exclude="Build,Analyzers" />
+                <dependency id="System.IO.Compression.ZipFile" version="4.3.0" exclude="Build,Analyzers" />
+                <dependency id="System.Runtime.Serialization.Json" version="4.3.0" exclude="Build,Analyzers" />
+            </group>
+        </dependencies>
+		<references>
+			<reference file="SqlD.dll" />
+		</references>
+		<contentFiles>
+			<files include="**/appsettings.json" buildAction="None" copyToOutput="true"/>
+			<files include="**/Process/*.zip" buildAction="None" copyToOutput="true"/>
+		</contentFiles>
+    </metadata>
+	<files>
+		<file src="bin/*/netcoreapp2.2/SqlD.dll" target="lib/netcoreapp2.2" />
+		<file src="bin/*/netcoreapp2.2/appsettings.json" target="contentFiles/any/any" />
+		<file src="bin/*/netcoreapp2.2/Process/*.zip" target="contentFiles/any/any/Process" />
+	</files>
+</package>

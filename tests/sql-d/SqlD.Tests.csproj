@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp2.2</TargetFramework>
+		<RuntimeIdentifier>win10-x64</RuntimeIdentifier>
+		<RuntimeFrameworkVersion>2.2.0</RuntimeFrameworkVersion>
+		<UseAppHost>true</UseAppHost>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Configuration\appsettings.tests.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Configuration\appsettings.tests.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="GenFu" Version="1.5.6" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+		<PackageReference Include="Moq" Version="4.10.1" />
+		<PackageReference Include="NUnit" Version="3.11.0" />
+		<PackageReference Include="NUnit3TestAdapter" Version="3.12.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.109.2" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\sql-d\SqlD.csproj" />
+	</ItemGroup>
+
+</Project>
