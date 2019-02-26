@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Net;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace SqlD.UI
 {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace SqlD.Start.Options
+namespace SqlD.Options
 {
     public class ArgumentsParser
 	{

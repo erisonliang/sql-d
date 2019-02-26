@@ -2,13 +2,14 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>netcoreapp2.2</TargetFrameworks>
-		<RuntimeIdentifiers>win-x64;linux-x64;osx-x64</RuntimeIdentifiers>
-		<RuntimeFrameworkVersion>2.2.0</RuntimeFrameworkVersion>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<RuntimeIdentifiers>win-x64;osx-x64;linux-x64</RuntimeIdentifiers>
+		<PlatformTarget>x64</PlatformTarget>
 		<NuSpecFile>sql-d.nuspec</NuSpecFile>
-		<NuspecBasePath>$(OutputPath)</NuspecBasePath>
-		<PackageOutputPath>../../build/sql-d/</PackageOutputPath>
+		<NuSpecBasePath>bin/$(Configuration)/netcoreapp2.2/</NuSpecBasePath>
+		<NoWarn>$(NoWarn);MSB4011;NU1603;NU5125;NU5100</NoWarn>
 	</PropertyGroup>
+
+	<Import Project="../../version.props" />
 
 	<ItemGroup>
 		<None Remove="appsettings.json" />
@@ -16,25 +17,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Content Include="sql-d.nuspec">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
+		<Content Include="sql-d.nuspec">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
 	</ItemGroup>
 
 	<ItemGroup>
 		<Content Include="appsettings.json">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
-
-	<ItemGroup>
-		<Content Include="..\..\build\sql-d.start\win-x64.zip" Link="Process\win-x64.zip">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-		<Content Include="..\..\build\sql-d.start\osx-x64.zip" Link="Process\osx-x64.zip">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-		<Content Include="..\..\build\sql-d.start\linux-x64.zip" Link="Process\linux-x64.zip">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>

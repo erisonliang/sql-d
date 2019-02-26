@@ -18,15 +18,20 @@ namespace SqlD.Configuration
 			{
 				var workingDirectory = entryAssembly.GetDirectory();
 
-				var configuration = new ConfigurationBuilder()
-					.SetBasePath(workingDirectory)
-					.AddJsonFile(settingsFile)
-					.Build();
+                var builder = new ConfigurationBuilder()
+                    .SetBasePath(workingDirectory);
 
-				var section = configuration.GetSection("SqlD");
-				var config = section.Get<SqlDConfiguration>();
-				return config;
-			}
+                if (File.Exists("appsettings.json"))
+                {
+                    builder.AddJsonFile(settingsFile);
+                    var configuration = builder.Build();
+                    var section = configuration.GetSection("SqlD");
+                    var config = section.Get<SqlDConfiguration>();
+                    return config;
+                }
+
+                return SqlDConfiguration.Default;
+            }
 		}
 
 		public static void Set(Assembly entryAssembly, SqlDConfiguration config, string settingsFile = "appsettings.json")

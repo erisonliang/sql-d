@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>sql-d</id>
-        <version>1.0.2</version>
+        <version>$version$</version>
         <title>HTTP interface for Sqlite</title>
         <authors>RealOrko</authors>
         <owners>RealOrko</owners>
@@ -11,7 +11,7 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>HTTP interface for Sqlite</description>
         <copyright>Copyright 2019 RealOrko</copyright>
-        <tags>http, sqld, sql-d, sqlite</tags>
+        <tags>http, sql-d, sqlite</tags>
         <dependencies>
             <group targetFramework=".NETCoreApp2.2">
                 <dependency id="Microsoft.AspNetCore" version="2.2.0" exclude="Build,Analyzers" />
@@ -34,14 +34,8 @@
 		<references>
 			<reference file="SqlD.dll" />
 		</references>
-		<contentFiles>
-			<files include="**/appsettings.json" buildAction="None" copyToOutput="true"/>
-			<files include="**/Process/*.zip" buildAction="None" copyToOutput="true"/>
-		</contentFiles>
     </metadata>
 	<files>
-		<file src="bin/*/netcoreapp2.2/SqlD.dll" target="lib/netcoreapp2.2" />
-		<file src="bin/*/netcoreapp2.2/appsettings.json" target="contentFiles/any/any" />
-		<file src="bin/*/netcoreapp2.2/Process/*.zip" target="contentFiles/any/any/Process" />
+		<file src="SqlD.dll" target="lib/netcoreapp2.2" />
 	</files>
 </package>
