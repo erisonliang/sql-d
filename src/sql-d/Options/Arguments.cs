@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SqlD.Start.Options
+namespace SqlD.Options
 {
     [Command(Command = "SqlD.Start")]
 	public class Arguments

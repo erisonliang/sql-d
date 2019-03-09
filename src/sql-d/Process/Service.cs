@@ -19,34 +19,51 @@ namespace SqlD.Process
 	{
 		public static System.Diagnostics.Process Start(Assembly startAssembly, SqlDServiceModel service)
 		{
-			Unpacker.Unpack();
-
 			var executable = string.Empty;
 			var workingDirectory = string.Empty;
 			var arguments = ParseArguments(service);
 			var baseDirectory = startAssembly.GetDirectory();
 
 			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-			{
-				workingDirectory = Path.Combine(baseDirectory, "bin", "win-x64").Replace("/", "\\");
-				executable = Path.Combine(workingDirectory, "SqlD.Start.exe").Replace("/", "\\");
+            {
+                var winRumtimeX64 = "win-x64";
+				workingDirectory = Path.Combine(baseDirectory, "sql-d.start", winRumtimeX64).Replace("/", "\\");
+				executable = Path.Combine(workingDirectory, $"SqlD.Start.{winRumtimeX64}.exe").Replace("/", "\\");
+                if (!File.Exists(executable))
+                {
+                    throw new Exception($"Could not find '{executable}'. Please install the NuGet 'sql-d.start.win-x64'.");
+                }
+
 			}
 
-			if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-			{
-				workingDirectory = Path.Combine(baseDirectory, "bin", "osx-x64");
-				executable = Path.Combine(workingDirectory, "SqlD.Start");
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                var osxRuntimeX64 = "osx-x64";
+				workingDirectory = Path.Combine(baseDirectory, "sql-d.start", osxRuntimeX64);
+				executable = Path.Combine(workingDirectory, $"SqlD.Start.{osxRuntimeX64}");
 				Command.Launch("/bin/chmod", $"+x {executable}", workingDirectory);
-			}
+                if (!File.Exists(executable))
+                {
+                    throw new Exception($"Could not find '{executable}'. Please install the NuGet 'sql-d.start.osx-x64'.");
+                }
 
-			if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            }
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
 			{
-				workingDirectory = Path.Combine(baseDirectory, "bin", "linux-x64");
-				executable = Path.Combine(workingDirectory, "SqlD.Start");
+                var linuxRuntimex64 = "linux-x64";
+                workingDirectory = Path.Combine(baseDirectory, "sql-d.start", linuxRuntimex64);
+				executable = Path.Combine(workingDirectory, $"SqlD.Start.{linuxRuntimex64}");
 				Command.Launch("/bin/chmod", $"+x {executable}", workingDirectory);
-			}
+                if (!File.Exists(executable))
+                {
+                    throw new Exception($"Could not find '{executable}'. Please install the NuGet 'sql-d.start.linux-x64'.");
+                }
 
-			Log.Out.Info($"Starting child process {service.Host}:{service.Port}/{service.Database}");
+            }
+
+            Log.Out.Info($"Starting child process {service.Host}:{service.Port}/{service.Database}");
+
 			var process = Command.Launch(executable, arguments, baseDirectory);
 
 			WaitUntilServiceIsUp(service);

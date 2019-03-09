@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "SqlD.Start": {
+      "commandName": "Project"
+    }
+  }
+}

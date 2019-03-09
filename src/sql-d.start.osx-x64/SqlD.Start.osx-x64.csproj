@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFrameworks>netcoreapp2.2</TargetFrameworks>
+		<RuntimeIdentifiers>osx-x64</RuntimeIdentifiers>
+		<StartupObject>SqlD.Start.osx_x64.Program</StartupObject>
+		<AssemblyName>SqlD.Start.osx-x64</AssemblyName>
+		<RootNamespace>SqlD.Start.osx_x64</RootNamespace>
+		<PlatformTarget>x64</PlatformTarget>
+		<NuSpecFile>sql-d.start.osx-x64.nuspec</NuSpecFile>
+		<NuSpecBasePath>bin/$(Configuration)/netcoreapp2.2/osx-x64/publish/</NuSpecBasePath>
+		<NoWarn>$(NoWarn);MSB4011;NU1603;NU5125;NU5100</NoWarn>
+	</PropertyGroup>
+
+	<Import Project="../../version.props" />
+
+	<ItemGroup>
+		<None Remove="sql-d.start.osx-x64.nuspec" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="sql-d.start.osx-x64.nuspec">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\sql-d\SqlD.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.109.2" />
+		<PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+		<PackageReference Include="System.Runtime.Serialization.Json" Version="4.3.0" />
+	</ItemGroup>
+
+</Project>

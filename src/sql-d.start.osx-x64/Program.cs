@@ -2,9 +2,9 @@
 using System.Linq;
 using SqlD.Configuration;
 using SqlD.Configuration.Model;
-using SqlD.Start.Options;
+using SqlD.Options;
 
-namespace SqlD.Start
+namespace SqlD.Start.osx_x64
 {
 	internal class Program
 	{

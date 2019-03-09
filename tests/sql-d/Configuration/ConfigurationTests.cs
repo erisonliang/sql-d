@@ -14,20 +14,15 @@ namespace SqlD.Tests.Configuration
 			var sqlD = GetType().Assembly.SqlDGo(@"./Configuration/appsettings.tests.json");
 			Assert.NotNull(sqlD);
 
-			var registry = sqlD.Services.First(x => x.Name.Equals("sql-d-registry-1"));
+			var registry = sqlD.Services.First(x => x.Name.Equals("localhost"));
 			Assert.Contains("registry", registry.Tags);
 
-			EndPointMonitor.WaitUntil(registry.ToEndPoint(), EndPointIs.Up);
+            EndPointMonitor.WaitUntil(registry.ToEndPoint(), EndPointIs.Up);
 
-			var slave = sqlD.Services.First(x => x.Name.Equals("sql-d-slave-1"));
-			Assert.Contains("slave 1", slave.Tags);
-
-			EndPointMonitor.WaitUntil(slave.ToEndPoint(), EndPointIs.Up);
-
-			var master = sqlD.Services.First(x => x.Name.Equals("sql-d-master-1"));
+			var master = sqlD.Services.First(x => x.Name.Equals("localhost"));
 			Assert.Contains("master", master.Tags);
 
-			EndPointMonitor.WaitUntil(master.ToEndPoint(), EndPointIs.Up);
-		}
-	}
+            EndPointMonitor.WaitUntil(master.ToEndPoint(), EndPointIs.Up);
+        }
+    }
 }

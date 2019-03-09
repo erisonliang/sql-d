@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SqlD.Start.Options
+namespace SqlD.Options
 {
     public class CommandAttribute : Attribute
     {

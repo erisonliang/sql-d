@@ -2,10 +2,15 @@
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<TargetFramework>netcoreapp2.2</TargetFramework>
+		<TargetFrameworks>netcoreapp2.2</TargetFrameworks>
+		<RuntimeIdentifiers>linux-x64;osx-x64;win-x64</RuntimeIdentifiers>
 		<TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<RuntimeFrameworkVersion>2.2.0</RuntimeFrameworkVersion>
+		<PlatformTarget>x64</PlatformTarget>
+		<NuSpecFile>sql-d.start.win-x64.nuspec</NuSpecFile>
+		<NuSpecBasePath>bin/$(Configuration)/netcoreapp2.2/$(RuntimeIdentifier)/publish/</NuSpecBasePath>
+		<AssemblyName>sqld.ui</AssemblyName>
 	</PropertyGroup>
 
 	<ItemGroup>

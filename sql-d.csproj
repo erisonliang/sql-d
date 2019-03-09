@@ -25,10 +25,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="7-Zip.CommandLine" Version="18.1.0" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Folder Include="docs\images\sqld\" />
 	</ItemGroup>
 

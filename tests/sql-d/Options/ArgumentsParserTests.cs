@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
-using SqlD.Start.Options;
+using SqlD.Options;
 
-namespace SqlD.Start.Tests.Options
+namespace SqlD.Tests.Options
 {
 	[TestFixture]
 	public class ArgumentsParserTests

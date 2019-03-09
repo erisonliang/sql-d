@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 
-namespace SqlD.Start.Options
+namespace SqlD.Options
 {
     public class CommandParser
     {

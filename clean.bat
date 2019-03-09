@@ -9,7 +9,9 @@ ECHO   USAGE:
 ECHO      clean 
 ECHO.
 
-git clean -x -f -d
+git clean -x -f -d || EXIT /B 1
+dotnet nuget locals global-packages --clear || EXIT /B 1
+
 GOTO END
 
 :END
