@@ -27,8 +27,3 @@ dotnet pack %StartOsxX64ProjectPath% -o ../../build --include-symbols || EXIT /B
 SET StartWinX64ProjectPath=./src/sql-d.start.win-x64/SqlD.Start.win-x64.csproj
 dotnet publish %StartWinX64ProjectPath% -r win-x64 --self-contained || EXIT /B 1
 dotnet pack %StartWinX64ProjectPath% -o ../../build --include-symbols || EXIT /B 1
-
-ECHO.
-ECHO [SQL-D]:PUBLISH/END/
-ECHO	OK
-ECHO.

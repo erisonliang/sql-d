@@ -5,9 +5,6 @@
 echo ''
 echo '[SQL-D]:KILL/'
 echo ''
-echo '  USAGE:'
-echo '     KILL'
-echo ''
 
 pkill dotnet
 pkill VBCSCompiler
@@ -16,5 +13,5 @@ pkill SqlD.Start
 
 echo ''
 echo '[SQL-D]:KILL/END/'
-echo '	Success'
+echo '	OK'
 echo ''

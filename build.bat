@@ -17,8 +17,3 @@ dotnet build .\tests\sql-d\SqlD.Tests.csproj -r win-x64 -c Debug
 dotnet test .\tests\sql-d\SqlD.Tests.csproj -r win-x64 -c Debug
 
 git checkout .\tests\sql-d\SqlD.Tests.csproj
-
-ECHO.
-ECHO [SQL-D]:BUILD/END/
-ECHO	OK
-ECHO.
