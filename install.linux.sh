@@ -6,6 +6,18 @@ echo ''
 echo '[SQL-D]:INSTALL/'
 echo ''
 
+DOTNETPATH=$(which dotnet)
+if [ ! -f "$DOTNETPATH" ]; then
+	echo "Please install Microsoft/dotnetcore from https://www.microsoft.com/net/core"
+	exit 1
+fi
+
+WGETPATH=$(which wget)
+if [ ! -f "$WGETPATH" ]; then
+	echo "Please install wget using your package manager eg. For Ubuntu: apt install wget"
+	exit 1
+fi
+
 dotnet tool install --global dotnet-cli-zip
 wget -O ./build/sql-d.start.linux-x64.nupkg https://www.nuget.org/api/v2/package/sql-d.start.linux-x64/1.0.2
 z -e ./build/sql-d.start.linux-x64.nupkg ./build/sql-d.start.linux-x64/
