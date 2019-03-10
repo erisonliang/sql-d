@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-set -xe
-
-./kill.sh
+# set -xe
 
 DOTNETPATH=$(which dotnet)
 if [ ! -f "$DOTNETPATH" ]; then
