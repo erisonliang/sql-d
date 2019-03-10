@@ -6,7 +6,7 @@
 		<RuntimeIdentifiers>linux-x64;osx-x64;win-x64</RuntimeIdentifiers>
 		<TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-		<RuntimeFrameworkVersion>2.2.0</RuntimeFrameworkVersion>
+		<RuntimeFrameworkVersion>2.2.2</RuntimeFrameworkVersion>
 		<PlatformTarget>x64</PlatformTarget>
 		<NuSpecFile>sql-d.start.win-x64.nuspec</NuSpecFile>
 		<NuSpecBasePath>bin/$(Configuration)/netcoreapp2.2/$(RuntimeIdentifier)/publish/</NuSpecBasePath>
@@ -37,12 +37,12 @@
 		</PackageReference>
 		<PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.2" />
-		<PackageReference Include="NSwag.AspNetCore" Version="12.0.14" />
+		<PackageReference Include="NSwag.AspNetCore" Version="12.0.15" />
 		<PackageReference Include="sql-d" Version="1.0.2" />
 		<PackageReference Include="sql-d.start.linux-x64" Version="1.0.2" />
 		<PackageReference Include="sql-d.start.osx-x64" Version="1.0.2" />
 		<PackageReference Include="sql-d.start.win-x64" Version="1.0.2" />
-		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.109.2" />
+		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.110" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
 	</ItemGroup>
 
