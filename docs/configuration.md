@@ -57,7 +57,7 @@ public static SqlDConfiguration Default { get; } = new SqlDConfiguration()
 };
 ```
 
-This configuration is used in our [Dockerfile] definition [here](https://github.com/RealOrko/sql-d/blob/master/Dockerfile).
+This configuration is used in our [Dockerfile](https://github.com/RealOrko/sql-d/blob/master/Dockerfile) definition.
 
 ### With `appsettings.json`
 
