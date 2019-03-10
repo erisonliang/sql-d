@@ -10,3 +10,5 @@ pkill dotnet
 pkill VBCSCompiler
 pkill SqlD.UI
 pkill SqlD.Start
+pkill SqlD.Start.osx-x64
+pkill SqlD.Start.linux-x64
