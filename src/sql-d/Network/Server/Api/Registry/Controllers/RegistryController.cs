@@ -53,7 +53,7 @@ namespace SqlD.Network.Server.Api.Registry.Controllers
 			});
 		}
 
-		[HttpPost]
+		[HttpPost("unregister")]
 		public IActionResult Unregister([FromBody] Registration registration)
 		{
 			return this.Intercept(() =>
@@ -75,11 +75,17 @@ namespace SqlD.Network.Server.Api.Registry.Controllers
 		{
 			dbConnection.CreateTable<RegistryEntry>();
 
-            var entries = dbConnection.Query<RegistryEntry>($"WHERE Uri = '{registration.Source.ToUrl()}'").ToList();
-            if (entries.Any())
-            {
-                dbConnection.DeleteMany(entries);
-            }
+			if (registration == null) 
+			{
+				SqlD.Logging.Log.Out.Warn("Registration is null, the registration client is broken ... ");
+			}
+			
+			if (registration.Source == null) 
+			{
+				SqlD.Logging.Log.Out.Warn("Registration.Source is null, garbage is building up in the registry ... ");
+			}
+			
+			UnregisterOrDeleteEntry(registration);
 
             dbConnection.Insert(new RegistryEntry()
             {
@@ -96,11 +102,21 @@ namespace SqlD.Network.Server.Api.Registry.Controllers
 		{
 			dbConnection.CreateTable<RegistryEntry>();
 
-            var entry = dbConnection.Query<RegistryEntry>($"WHERE Uri = '{registration.Source.ToUrl()}'").FirstOrDefault();
-			if (entry != null)
+			if (registration == null) 
 			{
-				dbConnection.Delete(entry);
+				SqlD.Logging.Log.Out.Warn("Registration is null, the registration client is broken ... ");
 			}
+			
+			if (registration.Source == null) 
+			{
+				SqlD.Logging.Log.Out.Warn("Registration.Source is null, garbage is building up in the registry ... ");
+			}
+			
+            var entries = dbConnection.Query<RegistryEntry>($"WHERE Uri = '{registration.Source.ToUrl()}'").ToList();
+            if (entries != null && entries.Any())
+            {
+                dbConnection.DeleteMany(entries);
+            }
 		}
 	}
 }
