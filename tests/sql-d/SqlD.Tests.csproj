@@ -12,10 +12,10 @@
 		<PackageReference Include="Moq" Version="4.10.1" />
 		<PackageReference Include="NUnit" Version="3.11.0" />
 		<PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
-		<PackageReference Include="sql-d" Version="1.0.2" />
-		<PackageReference Include="sql-d.start.linux-x64" Version="1.0.2" />
-		<PackageReference Include="sql-d.start.osx-x64" Version="1.0.2" />
-		<PackageReference Include="sql-d.start.win-x64" Version="1.0.2" />
+		<PackageReference Include="sql-d" Version="1.0.3" />
+		<PackageReference Include="sql-d.start.linux-x64" Version="1.0.3" />
+		<PackageReference Include="sql-d.start.osx-x64" Version="1.0.3" />
+		<PackageReference Include="sql-d.start.win-x64" Version="1.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
