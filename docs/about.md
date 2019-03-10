@@ -11,4 +11,4 @@ using your favourite HTTP client with basic fault tolerant forwarding.
 
  *See Also*:
 
-  - [SqlD UI](https://github.com/RealOrko/sql-d/blob/master/docs/sqld-ui.md)
+  - [SqlD UI](https://github.com/RealOrko/sql-d/blob/master/docs/sqld-ui.md#sqld-help---sqld-ui)
