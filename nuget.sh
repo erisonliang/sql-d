@@ -2,7 +2,7 @@ echo ''
 echo '[SQL-D]:PUBLISH-NUGET/'
 echo ''
 
-export VERSION=1.0.3
+export VERSION=1.0.4
 
 dotnet nuget push "./build/sql-d.$VERSION.nupkg" -s https://api.nuget.org/v3/index.json -k $NUGET_API_PUBLISH_KEY --timeout 9999
 
