@@ -4,12 +4,13 @@
 	<a href="https://github.com/RealOrko/sql-d/blob/master/docs/_.md#sqld-help---contents">[Back to Contents]</a>
 </div>
 
-  * [SqlD.Start](#sqldstart)
-  * [SqlD.UI](#sqldui)
+  * [SqlD.Start](#executing-sqldstart)
+  * [SqlD.Start via Docker](#executing-sqldstart-via-docker)
+  * [SqlD.UI](#executing-sqldui)
   * [Kill](#kill)
   * [Runtimes](#runtimes)
 
-## SqlD.Start
+## Executing SqlD.Start
 
 <div align="right">
 	<a href="#sqld-help---executing">[Back to Top]</a>
@@ -68,27 +69,41 @@ To execute SqlD browse to `./build/sqld.start/[RID]/` where RID = [`linux-x64`, 
 
  *See Also*:
 
-  - [Building SqlD.Start](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#sqldstart)
-  - [Building SqlD.UI](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#sqldui)
   - [Configuration](https://github.com/RealOrko/sql-d/blob/master/docs/configuration.md#services)
+  - [Building SqlD.Start](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#building-sqldstart)
 
-## SqlD.UI
+## Executing SqlD.Start via Docker
 
 <div align="right">
 	<a href="#sqld-help---executing">[Back to Top]</a>
 </div>
 
-To execute SqlD.UI browse to `./build/sqld.ui/[RID]/` where RID = [`linux-x64`, `osx-64`, `win-x64`]. Use this to manage SqlD instances.
+To run a SqlD.Start instance via docker please see the [docker.sh](https://github.com/RealOrko/sql-d/blob/master/docker.sh) script.
 
-`./SqlD.UI`
+*OSX/Linux*:
+ - `docker run -t realorko/sql-d:latest -p 5000:5000`
+
+ *See Also*:
+
+  - [Configuration](https://github.com/RealOrko/sql-d/blob/master/docs/configuration.md#services)
+  - [Building SqlD.Start via Docker](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#building-sqldstart-via-docker)
+
+## Executing SqlD.UI
+
+<div align="right">
+	<a href="#sqld-help---executing">[Back to Top]</a>
+</div>
+
+You have to compile and run SqlD.UI from source, please see [Building SqlD.UI](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#building-sqldui) first. To run a compiled SqlD.UI after compiling run:
+
+ - `dotnet run ./src/sql-d.ui/SqlD.UI.csproj`
 
 Browse to http://localhost:5000.
 
  *See Also*:
 
-  - [Building SqlD.UI](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#sqldui)
-  - [Building SqlD.Start](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#sqldstart)
   - [Configuration](https://github.com/RealOrko/sql-d/blob/master/docs/configuration.md#services)
+  - [Building SqlD.UI](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#building-sqldui)
 
 ## Kill
 
@@ -104,12 +119,6 @@ If you want to kill all rogue processes as a result of develop/debug/run/termina
 *OSX/Linux*:
  - `./kill.sh`
 
- *See Also*:
-
-  - [Building SqlD.Start](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#sqldstart)
-  - [Building SqlD.UI](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#sqldui)
-  - [Configuration](https://github.com/RealOrko/sql-d/blob/master/docs/configuration.md#services)
-
 ## Runtimes
 
 <div align="right">
@@ -120,6 +129,6 @@ SqlD is designed to support Windows 10(`win-x64`), MacOSX(`osx-x64`), Linux(`lin
 
  *See Also*:
 
-  - [Building SqlD.Start](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#sqldstart)
-  - [Building SqlD.UI](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#sqldui)
+  - [Building SqlD.Start](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#building-sqldstart)
+  - [Building SqlD.UI](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#building-sqldui)
   - [Configuration](https://github.com/RealOrko/sql-d/blob/master/docs/configuration.md#services)
