@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-set -xe
-
-./kill.sh
+# set -xe
 
 export PATH=$PATH:./.dotnet
 
