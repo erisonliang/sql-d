@@ -4,6 +4,7 @@
 		<OutputType>Exe</OutputType>
 		<TargetFrameworks>netcoreapp2.2</TargetFrameworks>
 		<RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+		<RuntimeFrameworkVersion>2.2.2</RuntimeFrameworkVersion>
 		<StartupObject>SqlD.Start.win_x64.Program</StartupObject>
 		<AssemblyName>SqlD.Start.win-x64</AssemblyName>
 		<RootNamespace>SqlD.Start.win_x64</RootNamespace>
