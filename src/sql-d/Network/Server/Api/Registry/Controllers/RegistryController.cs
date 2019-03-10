@@ -75,13 +75,13 @@ namespace SqlD.Network.Server.Api.Registry.Controllers
 		{
 			dbConnection.CreateTable<RegistryEntry>();
 
-            var entry = dbConnection.Query<RegistryEntry>($"WHERE Uri = '{registration.Source.ToUrl()}'").FirstOrDefault();
-            if (entry != null)
+            var entries = dbConnection.Query<RegistryEntry>($"WHERE Uri = '{registration.Source.ToUrl()}'").ToList();
+            if (entries.Any())
             {
-                dbConnection.Delete(entry);
+                dbConnection.DeleteMany(entries);
             }
 
-			dbConnection.Insert(new RegistryEntry()
+            dbConnection.Insert(new RegistryEntry()
             {
                 Name = registration.Name,
                 Database = registration.Database,
