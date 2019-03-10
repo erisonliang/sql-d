@@ -38,6 +38,10 @@
 		<PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.2" />
 		<PackageReference Include="NSwag.AspNetCore" Version="12.0.14" />
+		<PackageReference Include="sql-d" Version="1.0.2" />
+		<PackageReference Include="sql-d.start.linux-x64" Version="1.0.2" />
+		<PackageReference Include="sql-d.start.osx-x64" Version="1.0.2" />
+		<PackageReference Include="sql-d.start.win-x64" Version="1.0.2" />
 		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.109.2" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
 	</ItemGroup>
@@ -47,10 +51,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\sql-d\SqlD.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
+	  <Content Update="appsettings.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
 	  <Content Update="Views\Service\Edit.cshtml">
 	    <Pack>$(IncludeRazorContentInPack)</Pack>
 	  </Content>
