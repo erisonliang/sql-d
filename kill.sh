@@ -10,8 +10,3 @@ pkill dotnet
 pkill VBCSCompiler
 pkill SqlD.UI
 pkill SqlD.Start
-
-echo ''
-echo '[SQL-D]:KILL/END/'
-echo '	OK'
-echo ''

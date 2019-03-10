@@ -15,8 +15,3 @@ if "%ERRORLEVEL%"=="0" ( taskkill /IM SqlD.Start.exe /F )
 
 tasklist /FI "IMAGENAME eq SqlD.Start.win-x64.exe" 2>NUL | find /I /N "SqlD.Start.win-x64.exe">NUL
 if "%ERRORLEVEL%"=="0" ( taskkill /IM "SqlD.Start.win-x64.exe" /F )
-
-ECHO.
-ECHO [SQL-D]:KILL/END/
-ECHO	Success
-ECHO.

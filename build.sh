@@ -34,5 +34,3 @@ dotnet add ./tests/sql-d/SqlD.Tests.csproj package sql-d --source $(pwd)/build -
 dotnet add ./tests/sql-d/SqlD.Tests.csproj package "sql-d.start.${Runtime}" --source $(pwd)/build --package-directory $(pwd)/build
 dotnet build ./tests/sql-d/SqlD.Tests.csproj -r $Runtime --source $(pwd)/build
 dotnet test ./tests/sql-d/SqlD.Tests.csproj -r $Runtime
-
-git checkout ./tests/sql-d/SqlD.Tests.csproj
