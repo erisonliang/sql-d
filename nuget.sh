@@ -2,10 +2,9 @@ echo ''
 echo '[SQL-D]:PUBLISH-NUGET/'
 echo ''
 
-dotnet nuget push ./build/sql-d/sql-d.1.0.2.nupkg -s https://api.nuget.org/v3/index.json -k $NUGET_API_PUBLISH_KEY --timeout 9999
+export VERSION=1.0.2
 
-echo ''
-echo '[SQL-D]:PUBLISH-NUGET/END'
-echo '  Success.'
-echo ''
-
+dotnet nuget push "./build/sql-d.$VERSION.nupkg" -s https://api.nuget.org/v3/index.json -k $NUGET_API_PUBLISH_KEY --timeout 9999
+dotnet nuget push "./build/sql-d.$VERSION.start.linux-x64.nupkg" -s https://api.nuget.org/v3/index.json -k $NUGET_API_PUBLISH_KEY --timeout 9999
+dotnet nuget push "./build/sql-d.$VERSION.start.osx-x64.nupkg" -s https://api.nuget.org/v3/index.json -k $NUGET_API_PUBLISH_KEY --timeout 9999
+dotnet nuget push "./build/sql-d.$VERSION.start.win-x64.nupkg" -s https://api.nuget.org/v3/index.json -k $NUGET_API_PUBLISH_KEY --timeout 9999
