@@ -53,7 +53,7 @@ namespace SqlD.Network.Server.Api.Registry.Controllers
 			});
 		}
 
-		[HttpPost("unregister")]
+		[HttpPost]
 		public IActionResult Unregister([FromBody] Registration registration)
 		{
 			return this.Intercept(() =>
@@ -74,33 +74,29 @@ namespace SqlD.Network.Server.Api.Registry.Controllers
 		private void RegisterOrUpdateEntry(Registration registration)
 		{
 			dbConnection.CreateTable<RegistryEntry>();
-			var entry = dbConnection.Query<RegistryEntry>($"WHERE Uri = '{registration.Source.ToUrl()}'").FirstOrDefault();
 
-			if (entry == null)
-			{
-				entry = new RegistryEntry()
-				{
-					Name = registration.Name,
-					Database = registration.Database,
-					Uri = registration.Source.ToUrl(),
-					Tags = string.Join(",", registration.Tags.Select(x => x.Trim())),
-					LastUpdated = DateTime.UtcNow,
-                    AuthorityUri = authorityAddress.ToUrl()
-				};
+            var entry = dbConnection.Query<RegistryEntry>($"WHERE Uri = '{registration.Source.ToUrl()}'").FirstOrDefault();
+            if (entry != null)
+            {
+                dbConnection.Delete(entry);
+            }
 
-				dbConnection.Insert(entry);
-			}
-			else
-			{
-				entry.LastUpdated = DateTime.UtcNow;
-				dbConnection.Update(entry);
-			}
+			dbConnection.Insert(new RegistryEntry()
+            {
+                Name = registration.Name,
+                Database = registration.Database,
+                Uri = registration.Source.ToUrl(),
+                Tags = string.Join(",", registration.Tags.Select(x => x.Trim())),
+                LastUpdated = DateTime.UtcNow,
+                AuthorityUri = authorityAddress.ToUrl()
+            });
 		}
 
 		private void UnregisterOrDeleteEntry(Registration registration)
 		{
 			dbConnection.CreateTable<RegistryEntry>();
-			var entry = dbConnection.Query<RegistryEntry>($"WHERE Uri = '{registration.Source.ToUrl()}'").FirstOrDefault();
+
+            var entry = dbConnection.Query<RegistryEntry>($"WHERE Uri = '{registration.Source.ToUrl()}'").FirstOrDefault();
 			if (entry != null)
 			{
 				dbConnection.Delete(entry);
