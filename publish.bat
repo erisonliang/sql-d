@@ -29,7 +29,7 @@ dotnet publish %StartWinX64ProjectPath% -r win-x64 --self-contained || EXIT /B 1
 dotnet pack %StartWinX64ProjectPath% -o ../../build --include-symbols || EXIT /B 1
 
 SET UIProjectPath=./src/sql-d.ui/SqlD.UI.csproj
-dotnet build %UILinuxX64ProjectPath% -c Release
+dotnet build %UIProjectPath% -c Release
 
 SET UILinuxX64ProjectPath=./src/sql-d.ui.linux-x64/SqlD.UI.linux-x64.csproj
 dotnet publish %UILinuxX64ProjectPath% -r linux-x64 --self-contained
