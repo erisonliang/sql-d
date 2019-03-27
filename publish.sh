@@ -42,14 +42,17 @@ dotnet build $UIProjectPath
 export UILinuxX64ProjectPath=./src/sql-d.ui.linux-x64/SqlD.UI.linux-x64.csproj
 dotnet publish $UILinuxX64ProjectPath -c $Configuration -r linux-x64 -f $TargetFramework --self-contained
 cp -rf "src/sql-d.ui.linux-x64/bin/Release/${TargetFramework}/linux-x64/Views" "src/sql-d.ui.linux-x64/bin/Release/${TargetFramework}/linux-x64/publish/Views/"
+cp -rf "src/sql-d.ui.linux-x64/bin/Release/${TargetFramework}/sql-d.start" "src/sql-d.ui.linux-x64/bin/Release/${TargetFramework}/linux-x64/publish/sql-d.start/"
 dotnet pack $UILinuxX64ProjectPath -c $Configuration -o ../../build --include-symbols
 	
 export UIOsxX64ProjectPath=./src/sql-d.ui.osx-x64/SqlD.UI.osx-x64.csproj
 dotnet publish $UIOsxX64ProjectPath -c $Configuration -r osx-x64 -f $TargetFramework --self-contained 
 cp -rf "src/sql-d.ui.osx-x64/bin/Release/${TargetFramework}/osx-x64/Views" "src/sql-d.ui.osx-x64/bin/Release/${TargetFramework}/osx-x64/publish/Views/"
+cp -rf "src/sql-d.ui.osx-x64/bin/Release/${TargetFramework}/sql-d.start" "src/sql-d.ui.osx-x64/bin/Release/${TargetFramework}/osx-x64/publish/sql-d.start/"
 dotnet pack $UIOsxX64ProjectPath -c $Configuration -o ../../build --include-symbols 
 
 export UIWinX64ProjectPath=./src/sql-d.ui.win-x64/SqlD.UI.win-x64.csproj
 dotnet publish $UIWinX64ProjectPath -c $Configuration -r win-x64 -f $TargetFramework --self-contained 
 cp -rf "src/sql-d.ui.win-x64/bin/Release/${TargetFramework}/win-x64/Views" "src/sql-d.ui.win-x64/bin/Release/${TargetFramework}/win-x64/publish/Views/"
+cp -rf "src/sql-d.ui.win-x64/bin/Release/${TargetFramework}/sql-d.start" "src/sql-d.ui.win-x64/bin/Release/${TargetFramework}/win-x64/publish/sql-d.start/"
 dotnet pack $UIWinX64ProjectPath -c $Configuration -o ../../build --include-symbols 
