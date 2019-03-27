@@ -20,7 +20,7 @@
 		</dependencies>
 	</metadata>
 	<files>
-		<file src="*" exclude="sql-d.start/**" target="contentFiles/any/any/sql-d.ui/osx-x64" />
+		<file src="*" target="contentFiles/any/any/sql-d.ui/osx-x64" />
 		<file src="wwwroot/**" exclude="sql-d.start/**" target="contentFiles/any/any/sql-d.ui/osx-x64" />
 		<file src="Views/**" exclude="sql-d.start/**" target="contentFiles/any/any/sql-d.ui/osx-x64" />
 	</files>
