@@ -16,6 +16,7 @@
 		<PackageReference Include="sql-d.start.linux-x64" Version="1.0.5" />
 		<PackageReference Include="sql-d.start.osx-x64" Version="1.0.5" />
 		<PackageReference Include="sql-d.start.win-x64" Version="1.0.5" />
+		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.110" />
 	</ItemGroup>
 
 	<ItemGroup>
