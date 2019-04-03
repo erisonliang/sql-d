@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# set -xe
+set -xe
 
 export PATH=$PATH:./.dotnet
 
@@ -33,8 +33,8 @@ dotnet publish $StartOsxX64ProjectPath -c $Configuration -r osx-x64 -f $TargetFr
 dotnet pack $StartOsxX64ProjectPath -c $Configuration -o ../../build --include-symbols
 
 export StartWinX64ProjectPath=./src/sql-d.start.win-x64/SqlD.Start.win-x64.csproj
-dotnet publish $StartWinX64ProjectPath -c $Configuration -r win-x64 -f $TargetFramework --self-contained
-dotnet pack $StartWinX64ProjectPath -c $Configuration -o ../../build --include-symbols
+dotnet publish $StartWinX64ProjectPath -r win-x64 -f $TargetFramework --self-contained
+dotnet pack $StartWinX64ProjectPath -o ../../build --include-symbols
 
 export UIProjectPath=./src/sql-d.ui/SqlD.UI.csproj
 dotnet build $UIProjectPath
@@ -54,5 +54,5 @@ dotnet pack $UIOsxX64ProjectPath -c $Configuration -o ../../build --include-symb
 export UIWinX64ProjectPath=./src/sql-d.ui.win-x64/SqlD.UI.win-x64.csproj
 dotnet publish $UIWinX64ProjectPath -c $Configuration -r win-x64 -f $TargetFramework --self-contained 
 cp -rf "src/sql-d.ui.win-x64/bin/Release/${TargetFramework}/win-x64/Views" "src/sql-d.ui.win-x64/bin/Release/${TargetFramework}/win-x64/publish/Views/"
-cp -rf "src/sql-d.ui.win-x64/bin/Release/${TargetFramework}/sql-d.start" "src/sql-d.ui.win-x64/bin/Release/${TargetFramework}/win-x64/publish/sql-d.start/"
+cp -rf "src/sql-d.ui.win-x64/bin/Release/${TargetFramework}/win-x64/sql-d.start" "src/sql-d.ui.win-x64/bin/Release/${TargetFramework}/win-x64/publish/sql-d.start/"
 dotnet pack $UIWinX64ProjectPath -c $Configuration -o ../../build --include-symbols 
