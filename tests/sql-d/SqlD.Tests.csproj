@@ -12,11 +12,18 @@
 		<PackageReference Include="Moq" Version="4.10.1" />
 		<PackageReference Include="NUnit" Version="3.11.0" />
 		<PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
+<<<<<<< HEAD
 		<PackageReference Include="sql-d" Version="1.0.5" />
 		<PackageReference Include="sql-d.start.linux-x64" Version="1.0.5" />
 		<PackageReference Include="sql-d.start.osx-x64" Version="1.0.5" />
 		<PackageReference Include="sql-d.start.win-x64" Version="1.0.5" />
 		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.110" />
+=======
+		<PackageReference Include="sql-d" Version="1.0.4" />
+		<PackageReference Include="sql-d.start.linux-x64" Version="1.0.4" />
+		<PackageReference Include="sql-d.start.osx-x64" Version="1.0.4" />
+		<PackageReference Include="sql-d.start.win-x64" Version="1.0.4" />
+>>>>>>> 56941428050268ba8b095a7025f8b5ab2ccb6b54
 	</ItemGroup>
 
 	<ItemGroup>
