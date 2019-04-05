@@ -6,6 +6,8 @@ echo.
 echo [SQL-D]:INSTALL/
 echo.
 
+IF NOT EXIST .\build ( MKDIR .\build )
+
 dotnet tool install --global dotnet-cli-zip
 powershell -Command "Invoke-WebRequest https://www.nuget.org/api/v2/package/sql-d.start.win-x64/1.0.5 -OutFile build\sql-d.start.win-x64.nupkg"
 z -e ./build/sql-d.start.win-x64.nupkg ./build/sql-d.start.win-x64/
