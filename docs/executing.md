@@ -152,10 +152,14 @@ Then please browse to http://localhost:5000.
 If you want to kill all rogue processes as a result of develop/debug/run/terminate workflows:
 
 *Windows 10*:
-./kill`
+```
+./kill
+```
 
 *OSX/Linux*:
-./kill.sh`
+```
+./kill.sh
+```
 
 ## Runtimes
 
