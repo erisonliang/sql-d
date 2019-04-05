@@ -9,7 +9,7 @@ echo.
 IF NOT EXIST .\build ( MKDIR .\build )
 
 dotnet tool install --global dotnet-cli-zip
-powershell -Command "Invoke-WebRequest https://www.nuget.org/api/v2/package/sql-d.start.win-x64/1.0.5 -OutFile build\sql-d.start.win-x64.nupkg"
+powershell -Command "Invoke-WebRequest https://www.nuget.org/api/v2/package/sql-d.start.win-x64/1.0.6 -OutFile build\sql-d.start.win-x64.nupkg"
 z -e ./build/sql-d.start.win-x64.nupkg ./build/sql-d.start.win-x64/
 rm -rf %userprofile%\.sql-d\
 mkdir %userprofile%\.sql-d\
@@ -21,7 +21,7 @@ if "!path:%PATH_TO_INSERT%=!" equ "%path%" (
 )
 
 dotnet tool install --global dotnet-cli-zip
-powershell -Command "Invoke-WebRequest https://www.nuget.org/api/v2/package/sql-d.ui.win-x64/1.0.5 -OutFile build\sql-d.ui.win-x64.nupkg"
+powershell -Command "Invoke-WebRequest https://www.nuget.org/api/v2/package/sql-d.ui.win-x64/1.0.6 -OutFile build\sql-d.ui.win-x64.nupkg"
 z -e ./build/sql-d.ui.win-x64.nupkg ./build/sql-d.ui.win-x64/
 rm -rf %userprofile%\.sql-d.ui\
 mkdir %userprofile%\.sql-d.ui\

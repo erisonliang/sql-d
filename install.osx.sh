@@ -22,7 +22,7 @@ if [ ! -f "$WGETPATH" ]; then
 fi
 
 dotnet tool install --global dotnet-cli-zip
-wget -O ./build/sql-d.start.osx-x64.nupkg https://www.nuget.org/api/v2/package/sql-d.start.osx-x64/1.0.5
+wget -O ./build/sql-d.start.osx-x64.nupkg https://www.nuget.org/api/v2/package/sql-d.start.osx-x64/1.0.6
 z -e ./build/sql-d.start.osx-x64.nupkg ./build/sql-d.start.osx-x64/
 rm -rf ~/.sql-d/
 mkdir ~/.sql-d/
@@ -32,7 +32,7 @@ sudo mkdir -p /usr/local/bin
 sudo ln -fs ~/.sql-d/SqlD.Start.osx-x64 /usr/local/bin/sql-d
 
 dotnet tool install --global dotnet-cli-zip
-wget -O ./build/sql-d.ui.osx-x64.nupkg https://www.nuget.org/api/v2/package/sql-d.ui.osx-x64/1.0.5
+wget -O ./build/sql-d.ui.osx-x64.nupkg https://www.nuget.org/api/v2/package/sql-d.ui.osx-x64/1.0.6
 z -e ./build/sql-d.ui.osx-x64.nupkg ./build/sql-d.ui.osx-x64/
 rm -rf ~/.sql-d.ui/
 mkdir ~/.sql-d.ui/
