@@ -16,7 +16,27 @@
 	<a href="#sqld-help---executing">[Back to Top]</a>
 </div>
 
-To execute SqlD browse to `./build/sqld.start/[RID]/` where RID = [`linux-x64`, `osx-64`, `win-x64`]. This will start a headless instance of SqlD. 
+*Linux*:
+```
+dotnet publish ./src/sql-d.start.linux-x64 -c Release -f netcoreapp2.2 -r linux-x64
+./src/sql-d.start.linux-x64/bin/Release/netcoreapp2.2/linux-x64/publish/SqlD.Start.linux-x64
+```
+
+*OSX*:
+```
+dotnet publish ./src/sql-d.start.osx-x64 -c Release -f netcoreapp2.2 -r osx-x64
+./src/sql-d.start.osx-x64/bin/Release/netcoreapp2.2/osx-x64/publish/SqlD.Start.osx-x64
+```
+
+*Windows 10*:
+```
+dotnet publish .\src\sql-d.start.win-x64 -c Release -f netcoreapp2.2 -r win-x64
+.\src\sql-d.start.win-x64\bin\Release\netcoreapp2.2\win-x64\publish\SqlD.Start.win-x64.exe
+```
+
+Then please browse to http://localhost:5000.
+
+SqlD.Start command parameters:
 
 `./SqlD.Start`
 
@@ -81,7 +101,9 @@ To execute SqlD browse to `./build/sqld.start/[RID]/` where RID = [`linux-x64`, 
 To run a SqlD.Start instance via docker please see the [docker.sh](https://github.com/RealOrko/sql-d/blob/master/docker.sh) script.
 
 *OSX/Linux*:
- - `docker run -t realorko/sql-d:latest -p 5000:5000`
+```
+docker run -t realorko/sql-d:latest -p 5000:5000`
+```
 
  *See Also*:
 
@@ -94,13 +116,29 @@ To run a SqlD.Start instance via docker please see the [docker.sh](https://githu
 	<a href="#sqld-help---executing">[Back to Top]</a>
 </div>
 
-You have to compile and run SqlD.UI from source, please see [Building SqlD.UI](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#building-sqldui) first. To run a compiled SqlD.UI after compiling run:
+Here are the commands for executing the SqlD.UI:
 
- - `dotnet run ./src/sql-d.ui/SqlD.UI.csproj`
+*Linux*:
+```
+dotnet publish ./src/sql-d.ui -c Release -f netcoreapp2.2 -r linux-x64
+./src/sql-d.ui/bin/Release/netcoreapp2.2/linux-x64/publish/SqlD.UI
+```
 
-Browse to http://localhost:5000.
+*OSX*:
+```
+dotnet publish ./src/sql-d.ui -c Release -f netcoreapp2.2 -r osx-x64
+./src/sql-d.ui/bin/Release/netcoreapp2.2/osx-x64/publish/SqlD.UI
+```
 
- *See Also*:
+*Windows 10*:
+```
+dotnet publish .\src\sql-d.start.win-x64 -c Release -f netcoreapp2.2 -r win-x64
+.\src\sql-d.ui\bin\Release\netcoreapp2.2\win-x64\publish\SqlD.UI.exe
+```
+
+Then please browse to http://localhost:5000.
+
+*See Also*:
 
   - [Configuration](https://github.com/RealOrko/sql-d/blob/master/docs/configuration.md#services)
   - [Building SqlD.UI](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#building-sqldui)
@@ -114,10 +152,10 @@ Browse to http://localhost:5000.
 If you want to kill all rogue processes as a result of develop/debug/run/terminate workflows:
 
 *Windows 10*:
- - `./kill`
+./kill`
 
 *OSX/Linux*:
- - `./kill.sh`
+./kill.sh`
 
 ## Runtimes
 
@@ -127,7 +165,7 @@ If you want to kill all rogue processes as a result of develop/debug/run/termina
 
 SqlD is designed to support Windows 10(`win-x64`), MacOSX(`osx-x64`), Linux(`linux-x64`) and Docker(`microsoft/dotnet:2.1-aspnetcore-runtime`).
 
- *See Also*:
+*See Also*:
 
   - [Building SqlD.Start](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#building-sqldstart)
   - [Building SqlD.UI](https://github.com/RealOrko/sql-d/blob/master/docs/building.md#building-sqldui)

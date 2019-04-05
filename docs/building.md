@@ -9,6 +9,35 @@
   * [SqlD.UI](#building-sqldui)
   * [Clean](#clean)
 
+## Building Everything
+
+<div align="right">
+	<a href="#sqld-help---building">[Back to Top]</a>
+</div>
+
+If you would like to run a full build and publish all the NuGet's to the `./build` directory please call the `publish` command. The `build` command will install NuGet's
+from the `./build` directory and execute the tests. 
+
+*Windows 10*:
+```
+./publish
+./build
+```
+
+*OSX/Linux*:
+```
+./publish.sh
+./build.sh
+```
+
+If you add the folder `./build` as a nuget source then you can upgrade to newer local development versions and run the tests and ui against them by upgrading NuGets for projects 
+`./src/sql-d.ui` and `./tests/sql-d`. Please do not commit changes to `version.props`.
+
+*See Also*:
+
+  - [About](https://github.com/RealOrko/sql-d/blob/master/docs/about.md)
+  - [Prerequisites](https://github.com/RealOrko/sql-d/blob/master/docs/prerequisites.md)
+
 ## Building SqlD.Start
 
 <div align="right">
@@ -16,19 +45,36 @@
 </div>
 
 SqlD has its own process hosting mechanism for hosting SqlD instances called SqlD.Start. This will launch a single instance of SqlD without the presence of a user interface, also known 
-as a `headless instance`. It can also be used as a service registry. NuGet packages for SqlD.Start can be found in the `./build` directory. If you would like to bump the 
-published NuGet package versions locally please edit `./version.props` between `publish` runs.
+as a `headless instance`. It can also be used as a service registry. NuGet packages for SqlD.Start can be found in the `./build` directory. 
 
 *Windows 10*:
- - `./publish`
+```
+git clone git@github.com:RealOrko/sql-d.git
+cd ./sql-d
+dotnet restore ./src/sql-d.start.win-x64/
+dotnet build ./src/sql-d.start.win-x64/
+```
 
-*OSX/Linux*:
- - `./publish.sh`
+*OSX*:
+```
+git clone git@github.com:RealOrko/sql-d.git
+cd ./sql-d
+dotnet restore ./src/sql-d.start.osx-x64/
+dotnet build ./src/sql-d.start.osx-x64/
+```
 
-If you add the folder `./build` as a nuget source then you can upgrade to newer local development versions and run the tests and ui against them by upgrading NuGets for projects `./src/sql-d.ui` 
-and `./tests/sql-d`. 
+*Linux*:
+```
+git clone git@github.com:RealOrko/sql-d.git
+cd ./sql-d
+dotnet restore ./src/sql-d.start.linux-x64/
+dotnet build ./src/sql-d.start.linux-x64/
+```
 
- *See Also*:
+If you add the folder `./build` as a nuget source then you can upgrade to newer local development versions and run the tests and ui against them by upgrading NuGets for projects 
+`./src/sql-d.ui` and `./tests/sql-d`. Please do not commit changes to `version.props`.
+
+*See Also*:
 
   - [About](https://github.com/RealOrko/sql-d/blob/master/docs/about.md)
   - [Prerequisites](https://github.com/RealOrko/sql-d/blob/master/docs/prerequisites.md)
@@ -43,10 +89,12 @@ and `./tests/sql-d`.
 To build a SqlD.Start instance via docker please see the [docker.sh](https://github.com/RealOrko/sql-d/blob/master/docker.sh) script.
 
 *OSX/Linux*:
- - `docker build -t realorko/sql-d .`
- - `docker run -d -p 5000:5000 -t realorko/sql-d`
- - `docker-machine start father`
- - `eval $(docker-machine env father)`
+```
+docker build -t realorko/sql-d .
+docker run -d -p 5000:5000 -t realorko/sql-d
+docker-machine start father
+eval $(docker-machine env father)
+```
 
 *See Also*:
 
@@ -61,16 +109,17 @@ To build a SqlD.Start instance via docker please see the [docker.sh](https://git
 </div>
 
 SqlD.UI is a user interface for interacting with SqlD instances on single host. You can create/query/delete SqlD instances and re-route forwarding traffic which is 
-[default configured](https://github.com/RealOrko/sql-d/blob/master/docs/configuration.md#defaults). Browse to http://localhost:5000. This component is not available
-on NuGet just yet. You will have to compile and run it from source.
+[default configured](https://github.com/RealOrko/sql-d/blob/master/docs/configuration.md#defaults). 
 
- - `git clone git@github.com:RealOrko/sql-d.git`
- - `cd ./sql-d`
- - `dotnet restore ./src/sql-d.ui/SqlD.UI.csproj`
- - `dotnet build ./src/sql-d.ui/SqlD.UI.csproj`
+```
+git clone git@github.com:RealOrko/sql-d.git
+cd ./sql-d
+dotnet restore ./src/sql-d.ui/
+dotnet build ./src/sql-d.ui/
+```
 
-Please be sure to call `./publish`|`./publish.sh` first if you are making changes to SqlD itself. Incrementing build numbers `./version.props` and registering `./build` as a NuGet source 
-will allow you to upgrade packages `sql-d.*` in `src/sql-d.ui` and `tests/sql-d` locally for testing.
+If you add the folder `./build` as a nuget source then you can upgrade to newer local development versions and run the tests and ui against them by upgrading NuGets for projects 
+`./src/sql-d.ui` and `./tests/sql-d`. Please do not commit changes to `version.props`.
 
  *See Also*:
 
@@ -87,10 +136,14 @@ will allow you to upgrade packages `sql-d.*` in `src/sql-d.ui` and `tests/sql-d`
 If you want to get rid of all build artifacts and newly created files. The nuclear option, please be careful.
 
 *Windows 10*:
- - `./clean`
+```
+./clean
+```
 
 *OSX/Linux*:
- - `./clean.sh`
+```
+./clean.sh
+```
 
  *See Also*:
 
