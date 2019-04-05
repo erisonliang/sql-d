@@ -6,6 +6,8 @@ echo ''
 echo '[SQL-D]:INSTALL/'
 echo ''
 
+mkdir -p ./build
+
 DOTNETPATH=$(which dotnet)
 if [ ! -f "$DOTNETPATH" ]; then
 	echo "Please install Microsoft/dotnetcore from https://www.microsoft.com/net/core"
