@@ -89,7 +89,7 @@ namespace New_SqlD_Client
 
 You have swagger support everywhere. Merely type `/swagger` at the end of any base endpoint url. 
 
-Examples based on the [default configuration](https://github.com/RealOrko/sql-d/blob/master/docs/configuration.md#defaults):
+Examples based on the [default configuration](https://github.com/RealOrko/sql-d/blob/master/docs/configuration.md#defaults) for SqlD.UI:
 
  - `sqld.ui`: http://localhost:5000/swagger
  - `registry`: http://localhost:50095/swagger
