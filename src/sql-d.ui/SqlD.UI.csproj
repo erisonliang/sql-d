@@ -24,14 +24,14 @@
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
-		<PackageReference Include="Microsoft.Build.Tasks.Core" Version="15.9.20" />
+		<PackageReference Include="Microsoft.Build.Tasks.Core" Version="16.0.461" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
-		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.2" />
-		<PackageReference Include="NSwag.AspNetCore" Version="12.0.15" />
-		<PackageReference Include="sql-d" Version="1.0.4" />
-		<PackageReference Include="sql-d.start.linux-x64" Version="1.0.4" />
-		<PackageReference Include="sql-d.start.osx-x64" Version="1.0.4" />
-		<PackageReference Include="sql-d.start.win-x64" Version="1.0.4" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+		<PackageReference Include="NSwag.AspNetCore" Version="12.1.0" />
+		<PackageReference Include="sql-d" Version="1.0.5" />
+		<PackageReference Include="sql-d.start.linux-x64" Version="1.0.5" />
+		<PackageReference Include="sql-d.start.osx-x64" Version="1.0.5" />
+		<PackageReference Include="sql-d.start.win-x64" Version="1.0.5" />
 		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.110" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
 	</ItemGroup>
@@ -64,23 +64,17 @@
 
 	<Target Name="UICopyLinux" AfterTargets="Build">
 		<Message Text="Copying files to linux-x64 UI" />
-		<MSBuild Projects ="$(MSBuildProjectFullPath)"
-		         Properties="ProjectRuntimeTarget=linux-x64"
-		         Targets="UICopyFiles" />	
+		<MSBuild Projects="$(MSBuildProjectFullPath)" Properties="ProjectRuntimeTarget=linux-x64" Targets="UICopyFiles" />	
 	</Target>
 
 	<Target Name="UICopyOSX" AfterTargets="Build">
 		<Message Text="Copying files to osx-x64 UI" />
-		<MSBuild Projects ="$(MSBuildProjectFullPath)"
-		         Properties="ProjectRuntimeTarget=osx-x64"
-		         Targets="UICopyFiles" />
+		<MSBuild Projects="$(MSBuildProjectFullPath)" Properties="ProjectRuntimeTarget=osx-x64" Targets="UICopyFiles" />
 	</Target>
 
 	<Target Name="UICopyWin" AfterTargets="Build">
 		<Message Text="Copying files to win-x64 UI" />
-		<MSBuild Projects ="$(MSBuildProjectFullPath)"
-		         Properties="ProjectRuntimeTarget=win-x64"
-		         Targets="UICopyFiles" />
+		<MSBuild Projects="$(MSBuildProjectFullPath)" Properties="ProjectRuntimeTarget=win-x64" Targets="UICopyFiles" />
 	</Target>
 
 </Project>
