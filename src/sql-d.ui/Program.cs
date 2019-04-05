@@ -148,7 +148,7 @@ namespace SqlD.UI
 	        }
 		}
 
-        public static IWebHost BuildWebHost(string[] args)
+		public static IWebHost BuildWebHost(string[] args)
 	    {
 		    try
 		    {
