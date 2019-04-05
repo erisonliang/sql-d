@@ -4,6 +4,7 @@
 	<a href="https://github.com/RealOrko/sql-d/blob/master/docs/_.md#sqld-help---contents">[Back to Contents]</a>
 </div>
 
+  * [Building Everything](#building-everything)
   * [SqlD.Start](#building-sqldstart)
   * [SqlD.Start via Docker](#building-sqldstart-via-docker)
   * [SqlD.UI](#building-sqldui)
