@@ -29,6 +29,16 @@ chmod +x ~/.sql-d/SqlD.Start.osx-x64
 sudo mkdir -p /usr/local/bin
 sudo ln -fs ~/.sql-d/SqlD.Start.osx-x64 /usr/local/bin/sql-d
 
+dotnet tool install --global dotnet-cli-zip
+wget -O ./build/sql-d.ui.osx-x64.nupkg https://www.nuget.org/api/v2/package/sql-d.ui.osx-x64/1.0.4
+z -e ./build/sql-d.ui.osx-x64.nupkg ./build/sql-d.ui.osx-x64/
+rm -rf ~/.sql-d.ui/
+mkdir ~/.sql-d.ui/
+cp -R ./build/sql-d.ui.osx-x64/contentFiles/any/any/sql-d.ui/osx-x64/* ~/.sql-d.ui/
+chmod +x ~/.sql-d.ui/SqlD.UI.osx-x64
+sudo mkdir -p /usr/local/bin
+sudo ln -fs ~/.sql-d.ui/SqlD.UI.osx-x64 /usr/local/bin/sql-d.ui
+
 echo "[SQL-D]: Please type 'sql-d -w' to launch and browse to http://localhost:5000/swagger"
 echo "[SQL-D]: For more sql-d options, please type 'sql-d' and hit enter"
 echo "[SQL-D]: Example: sql-d -n newservice1 -s "localhost:9000" -d "newservice1.db" -r "localhost:9000" -w"
