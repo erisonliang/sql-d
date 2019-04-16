@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Reflection;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
@@ -19,7 +21,7 @@ namespace SqlD.UI
 	        }
 		}
 
-        public static IWebHost BuildWebHost(string[] args)
+		public static IWebHost BuildWebHost(string[] args)
 	    {
 		    try
 		    {
@@ -27,8 +29,8 @@ namespace SqlD.UI
 					.UseKestrel(opts => {
 						opts.ListenAnyIP(5000);
 					})
+					.UseContentRoot(Path.GetDirectoryName(Assembly.GetEntryAssembly().CodeBase))
 				    .UseStartup<Startup>()
-				    //.UseUrls("http://+:5000")
 				    .Build();
 		    }
 		    catch (Exception err)
