@@ -6,7 +6,7 @@
 		<TargetFrameworks>netcoreapp2.2</TargetFrameworks>
 		<TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-		<RuntimeFrameworkVersion>2.2.2</RuntimeFrameworkVersion>
+		<RuntimeFrameworkVersion>2.2.4</RuntimeFrameworkVersion>
 		<PlatformTarget>x64</PlatformTarget>
 		<AssemblyName>SqlD.UI</AssemblyName>
 		<StartupObject>SqlD.UI.Program</StartupObject>

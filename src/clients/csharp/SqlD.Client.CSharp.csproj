@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFrameworks>netcoreapp2.2</TargetFrameworks>
 		<RuntimeIdentifier>win10-x64</RuntimeIdentifier>
-		<RuntimeFrameworkVersion>2.2.2</RuntimeFrameworkVersion>
+		<RuntimeFrameworkVersion>2.2.4</RuntimeFrameworkVersion>
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
 		<TargetFrameworks>netcoreapp2.2</TargetFrameworks>
-		<RuntimeFrameworkVersion>2.2.2</RuntimeFrameworkVersion>
+		<RuntimeFrameworkVersion>2.2.4</RuntimeFrameworkVersion>
 		<RuntimeIdentifiers>linux-x64</RuntimeIdentifiers>
 		<StartupObject>SqlD.Start.linux_x64.Program</StartupObject>
 		<AssemblyName>SqlD.Start.linux-x64</AssemblyName>

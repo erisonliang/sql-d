@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFrameworks>netcoreapp2.2</TargetFrameworks>
 		<RuntimeIdentifiers>win-x64;osx-x64;linux-x64</RuntimeIdentifiers>
-		<RuntimeFrameworkVersion>2.2.2</RuntimeFrameworkVersion>
+		<RuntimeFrameworkVersion>2.2.4</RuntimeFrameworkVersion>
 		<PlatformTarget>x64</PlatformTarget>
 		<NuSpecFile>sql-d.nuspec</NuSpecFile>
 		<NuSpecBasePath>bin/$(Configuration)/netcoreapp2.2/</NuSpecBasePath>
