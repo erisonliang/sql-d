@@ -14,7 +14,7 @@
 		<AssemblyName>SqlD.UI.osx-x64</AssemblyName>
 		<StartupObject>SqlD.UI.Program</StartupObject>
 		<RootNamespace>SqlD.UI</RootNamespace>
-		<NoWarn>$(NoWarn);MSB4011;NU1603;NU5125;NU5100</NoWarn>
+		<NoWarn>$(NoWarn);NU1603;NU5125;NU5100;CS0618</NoWarn>
 	</PropertyGroup>
 
 	<Import Project="../../version.props" />

@@ -7,7 +7,7 @@
 		<PlatformTarget>x64</PlatformTarget>
 		<NuSpecFile>sql-d.nuspec</NuSpecFile>
 		<NuSpecBasePath>bin/$(Configuration)/netcoreapp2.2/</NuSpecBasePath>
-		<NoWarn>$(NoWarn);MSB4011;NU1603;NU5125;NU5100</NoWarn>
+		<NoWarn>$(NoWarn);NU1603;NU5125;NU5100;CS0618</NoWarn>
 	</PropertyGroup>
 
 	<Import Project="../../version.props" />
