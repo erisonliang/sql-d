@@ -31,8 +31,8 @@
 		<PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
 		<PackageReference Include="NSwag.AspNetCore" Version="12.1.0" />
-		<PackageReference Include="sql-d" Version="1.0.6" />
-		<PackageReference Include="sql-d.start.linux-x64" Version="1.0.6" />
+		<PackageReference Include="sql-d" Version="1.0.7" />
+		<PackageReference Include="sql-d.start.linux-x64" Version="1.0.7" />
 		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.110" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
 	</ItemGroup>
