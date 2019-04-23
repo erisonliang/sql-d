@@ -19,7 +19,7 @@ if [ ! -f "$WGETPATH" ]; then
 fi
 
 dotnet tool install --global dotnet-cli-zip
-wget -O ./build/sql-d.start.linux-x64.nupkg https://www.nuget.org/api/v2/package/sql-d.start.linux-x64/1.0.6
+wget -O ./build/sql-d.start.linux-x64.nupkg https://www.nuget.org/api/v2/package/sql-d.start.linux-x64/1.0.7
 z -e ./build/sql-d.start.linux-x64.nupkg ./build/sql-d.start.linux-x64/
 rm -rf ~/.sql-d/
 mkdir ~/.sql-d/

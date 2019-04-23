@@ -14,12 +14,12 @@ You can install SqlD from NuGet and reference it in a dotnet project.
 
 ### Package Manager
 ```
-PM> Install-Package sql-d -Version 1.0.6
+PM> Install-Package sql-d -Version 1.0.7
 ```
 
 ### .NET CLI
 ```
-> dotnet add package sql-d --version 1.0.6
+> dotnet add package sql-d --version 1.0.7
 ```
 
 ### CSharp Example
