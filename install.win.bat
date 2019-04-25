@@ -9,7 +9,7 @@ echo.
 IF NOT EXIST .\build ( MKDIR .\build )
 
 dotnet tool install --global dotnet-cli-zip
-powershell -Command "Invoke-WebRequest https://www.nuget.org/api/v2/package/sql-d.start.win-x64/1.0.7 -OutFile build\sql-d.start.win-x64.nupkg"
+powershell -Command "Invoke-WebRequest https://www.nuget.org/api/v2/package/sql-d.start.win-x64/1.0.8 -OutFile build\sql-d.start.win-x64.nupkg"
 z -e ./build/sql-d.start.win-x64.nupkg ./build/sql-d.start.win-x64/
 rm -rf %userprofile%\.sql-d\
 mkdir %userprofile%\.sql-d\
@@ -17,7 +17,7 @@ xcopy .\build\sql-d.start.win-x64\contentFiles\any\any\sql-d.start\win-x64\* %us
 copy %userprofile%\.sql-d\SqlD.Start.win-x64.exe %userprofile%\.sql-d\sql-d.exe 
 
 dotnet tool install --global dotnet-cli-zip
-powershell -Command "Invoke-WebRequest https://www.nuget.org/api/v2/package/sql-d.ui.win-x64/1.0.7 -OutFile build\sql-d.ui.win-x64.nupkg"
+powershell -Command "Invoke-WebRequest https://www.nuget.org/api/v2/package/sql-d.ui.win-x64/1.0.8 -OutFile build\sql-d.ui.win-x64.nupkg"
 z -e ./build/sql-d.ui.win-x64.nupkg ./build/sql-d.ui.win-x64/
 rm -rf %userprofile%\.sql-d.ui\
 mkdir %userprofile%\.sql-d.ui\
