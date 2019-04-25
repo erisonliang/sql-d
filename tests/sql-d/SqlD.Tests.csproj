@@ -22,10 +22,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Update="Configuration\appsettings.tests.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-	  </None>
+		<None Update="Configuration\appsettings.tests.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
 	</ItemGroup>
 
 </Project>

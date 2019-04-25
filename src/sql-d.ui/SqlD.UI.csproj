@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
@@ -64,7 +64,7 @@
 
 	<Target Name="UICopyLinux" AfterTargets="Build">
 		<Message Text="Copying files to linux-x64 UI" />
-		<MSBuild Projects="$(MSBuildProjectFullPath)" Properties="ProjectRuntimeTarget=linux-x64" Targets="UICopyFiles" />	
+		<MSBuild Projects="$(MSBuildProjectFullPath)" Properties="ProjectRuntimeTarget=linux-x64" Targets="UICopyFiles" />
 	</Target>
 
 	<Target Name="UICopyOSX" AfterTargets="Build">
