@@ -33,7 +33,7 @@ namespace SqlD.Extensions.Discovery
 
 			var value4 = property.GetValue(instance);
 			if (value4 == null) return "NULL";
-			return value4;
+			return value4.ToString();
 		}
 	}
 }
