@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 echo "[SQL-D]: Please make sure you have run:"
-echo "[SQL-D]:  - docker-machine create father"
-echo "[SQL-D]:  - eval $(docker-machine env father)"
+echo "[SQL-D]:  - docker-machine create -d virtualbox --virtualbox-disk-size \"30000\" father"
+echo "[SQL-D]:  - eval \$(docker-machine env father)"
 
 docker build -t realorko/sql-d .
 docker run -d -p 5000:5000 -t realorko/sql-d

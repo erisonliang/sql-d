@@ -8,7 +8,7 @@ COPY ./src/ /app/src/
 RUN mkdir /app/build
 RUN dotnet publish /app/src/sql-d.start.linux-x64/SqlD.Start.linux-x64.csproj -f netcoreapp3.0 -r linux-x64 -c Debug -o /app/build/ --self-contained
 
-FROM microsoft/dotnet:2.2-aspnetcore-runtime
+FROM microsoft/dotnet:3.0-aspnetcore-runtime
 
 WORKDIR /app
 
