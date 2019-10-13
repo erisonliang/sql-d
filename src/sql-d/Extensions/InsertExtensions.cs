@@ -43,12 +43,12 @@ namespace SqlD.Extensions
 				if (property.Name == idProperty.Name && !withIdentity) continue;
 				if (property.Name == idProperty.Name)
 				{
-					var value = ValueDiscovery.GetValue(instance, property);
+					var value = (string) ValueDiscovery.GetValue(instance, property);
 					values.Add(value == "0" ? "NULL" : value.ToString());
 				}
 				else
 				{
-					var value = ValueDiscovery.GetValue(instance, property);
+					var value = (string) ValueDiscovery.GetValue(instance, property);
 					values.Add(value.ToString());
 				}
 			}

@@ -3,14 +3,18 @@ using System.IO;
 using System.Reflection;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using SqlD.Logging;
 
 namespace SqlD.UI
 {
     public class Program
     {
+        private static readonly Uri EntryAssemblyCodeBase = new Uri(Assembly.GetEntryAssembly().CodeBase);
+        private static readonly string RootDirectoryPath = Path.GetDirectoryName(EntryAssemblyCodeBase.LocalPath);
+
         public static void Main(string[] args)
         {
-	        var config = typeof(Program).Assembly.SqlDGo();
+	        var config = typeof(Program).Assembly.SqlDGo("appsettings.json");
 	        try
 	        {
 		        BuildWebHost(args)?.Run();
@@ -25,18 +29,23 @@ namespace SqlD.UI
 	    {
 		    try
 		    {
-			    return WebHost.CreateDefaultBuilder(args)
+
+                Log.Out.Info($"Entry assembly: {EntryAssemblyCodeBase}");
+                Log.Out.Info($"Content Root: {RootDirectoryPath}");
+                Log.Out.Info($"Current directory: {Environment.CurrentDirectory}");
+
+                return WebHost.CreateDefaultBuilder(args)
 					.UseKestrel(opts => {
 						opts.ListenAnyIP(5000);
 					})
-					.UseContentRoot(Path.GetDirectoryName(Assembly.GetEntryAssembly().CodeBase))
+					.UseContentRoot(RootDirectoryPath)
 				    .UseStartup<Startup>()
 				    .Build();
 		    }
 		    catch (Exception err)
 		    {
-				Console.WriteLine(err);
-				Console.WriteLine("Press any key to continue....");
+				Log.Out.Error(err.ToString());
+				Log.Out.Info("Press any key to continue....");
 			    return null;
 		    }
 	    }

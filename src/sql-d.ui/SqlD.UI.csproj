@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
@@ -11,7 +11,7 @@
 		<AssemblyName>SqlD.UI</AssemblyName>
 		<StartupObject>SqlD.UI.Program</StartupObject>
 		<RootNamespace>SqlD.UI</RootNamespace>
-		<NoWarn>$(NoWarn);MSB4011;NU1603;NU5125;NU5100</NoWarn>
+		<NoWarn>$(NoWarn);NU1603;NU5125;NU5100;CS0618</NoWarn>
 	</PropertyGroup>
 
 	<Import Project="../../version.props" />
@@ -28,10 +28,10 @@
 		<PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
 		<PackageReference Include="NSwag.AspNetCore" Version="12.1.0" />
-		<PackageReference Include="sql-d" Version="1.0.6" />
-		<PackageReference Include="sql-d.start.linux-x64" Version="1.0.6" />
-		<PackageReference Include="sql-d.start.osx-x64" Version="1.0.6" />
-		<PackageReference Include="sql-d.start.win-x64" Version="1.0.6" />
+		<PackageReference Include="sql-d" Version="1.0.8" />
+		<PackageReference Include="sql-d.start.linux-x64" Version="1.0.8" />
+		<PackageReference Include="sql-d.start.osx-x64" Version="1.0.8" />
+		<PackageReference Include="sql-d.start.win-x64" Version="1.0.8" />
 		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.110" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
 	</ItemGroup>
@@ -64,7 +64,7 @@
 
 	<Target Name="UICopyLinux" AfterTargets="Build">
 		<Message Text="Copying files to linux-x64 UI" />
-		<MSBuild Projects="$(MSBuildProjectFullPath)" Properties="ProjectRuntimeTarget=linux-x64" Targets="UICopyFiles" />	
+		<MSBuild Projects="$(MSBuildProjectFullPath)" Properties="ProjectRuntimeTarget=linux-x64" Targets="UICopyFiles" />
 	</Target>
 
 	<Target Name="UICopyOSX" AfterTargets="Build">

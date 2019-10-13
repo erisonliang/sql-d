@@ -11,7 +11,7 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>HTTP interface for Sqlite</description>
         <copyright>Copyright 2019 RealOrko</copyright>
-        <tags>http, sql-d, sql-d.start, sqlite, win-x64</tags>
+        <tags>http, sqld, sql-d, sql-d.start, sqlite, win-x64</tags>
         <dependencies>
             <group targetFramework=".NETCoreApp3.0">
 	            <dependency id="sql-d" version="$version$" />

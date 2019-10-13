@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
@@ -15,8 +16,9 @@ namespace SqlD.Configuration
 		public static SqlDConfiguration Get(Assembly entryAssembly, string settingsFile = "appsettings.json")
 		{
 			lock (Synchronise)
-			{
-				var workingDirectory = entryAssembly.GetDirectory();
+            {
+                var assemblyCodeBase = new Uri(entryAssembly.CodeBase);
+				var workingDirectory = Path.GetDirectoryName(assemblyCodeBase.LocalPath);
 
                 var builder = new ConfigurationBuilder()
                     .SetBasePath(workingDirectory);

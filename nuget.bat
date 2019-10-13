@@ -6,7 +6,7 @@ ECHO.
 ECHO [SQL-D]:PUBLISH-NUGET/
 ECHO.
 
-SET VERSION=1.0.6
+SET VERSION=1.0.8
 
 dotnet nuget push ./build/sql-d/sql-d.%VERSION%.nupkg -s https://api.nuget.org/v3/index.json -k %NUGET_API_PUBLISH_KEY%
 

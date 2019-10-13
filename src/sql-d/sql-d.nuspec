@@ -34,7 +34,7 @@
 		<references>
 			<reference file="SqlD.dll" />
 		</references>
-    </metadata>
+	</metadata>
 	<files>
 		<file src="SqlD.dll" target="lib/netcoreapp3.0" />
 	</files>
