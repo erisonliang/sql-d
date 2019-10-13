@@ -29,6 +29,8 @@ Configuration=Release
 TargetFramework=netcoreapp3.0
 
 dotnet add ./tests/sql-d/SqlD.Tests.csproj package sql-d --source $(pwd)/build --package-directory $(pwd)/build 
-dotnet add ./tests/sql-d/SqlD.Tests.csproj package "sql-d.start.${Runtime}" --source $(pwd)/build --package-directory $(pwd)/build
+dotnet add ./tests/sql-d/SqlD.Tests.csproj package "sql-d.start.linux-x64" --source $(pwd)/build --package-directory $(pwd)/build
+dotnet add ./tests/sql-d/SqlD.Tests.csproj package "sql-d.start.osx-x64" --source $(pwd)/build --package-directory $(pwd)/build
+dotnet add ./tests/sql-d/SqlD.Tests.csproj package "sql-d.start.win-x64" --source $(pwd)/build --package-directory $(pwd)/build
 dotnet build ./tests/sql-d/SqlD.Tests.csproj -r $Runtime --source $(pwd)/build
 dotnet test ./tests/sql-d/SqlD.Tests.csproj -r $Runtime

@@ -18,22 +18,22 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
-		<PackageReference Include="Microsoft.Build.Tasks.Core" Version="16.0.461" />
+		<PackageReference Include="Microsoft.Build.Tasks.Core" Version="16.3.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
-		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
-		<PackageReference Include="NSwag.AspNetCore" Version="12.1.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+		<PackageReference Include="NSwag.AspNetCore" Version="13.1.2" />
 		<PackageReference Include="sql-d" Version="1.0.8" />
 		<PackageReference Include="sql-d.start.linux-x64" Version="1.0.8" />
 		<PackageReference Include="sql-d.start.osx-x64" Version="1.0.8" />
 		<PackageReference Include="sql-d.start.win-x64" Version="1.0.8" />
-		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.110" />
-		<PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.111" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="3.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
