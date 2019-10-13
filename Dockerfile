@@ -6,7 +6,7 @@ RUN apt-get update
 COPY ./version.props /app/
 COPY ./src/ /app/src/
 RUN mkdir /app/build
-RUN dotnet publish /app/src/sql-d.start.linux-x64/SqlD.Start.linux-x64.csproj -f netcoreapp2.2 -r linux-x64 -c Debug -o /app/build/ --self-contained
+RUN dotnet publish /app/src/sql-d.start.linux-x64/SqlD.Start.linux-x64.csproj -f netcoreapp3.0 -r linux-x64 -c Debug -o /app/build/ --self-contained
 
 FROM microsoft/dotnet:2.2-aspnetcore-runtime
 

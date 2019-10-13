@@ -8,7 +8,6 @@ using Newtonsoft.Json.Converters;
 using SqlD.Configuration;
 using SqlD.Configuration.Model;
 using SqlD.Network;
-using SqlD.Network.Server;
 
 namespace SqlD.UI
 {
@@ -31,11 +30,9 @@ namespace SqlD.UI
             services.AddSingleton(x => SqlDStart.NewDb().ConnectedTo("sql-d/ui", "sql-d.ui.db", SqlDPragmaModel.Default));
 
             services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddJsonOptions(options =>
                 {
-                    options.SerializerSettings.Converters.Add(new StringEnumConverter());
-                    options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                    options.JsonSerializerOptions.IgnoreNullValues = true;
                 });
 
             services.AddSwaggerDocument(settings =>

@@ -18,7 +18,7 @@ rm -rf ./build
 mkdir ./build
 
 Configuration=Release
-TargetFramework=netcoreapp2.2
+TargetFramework=netcoreapp3.0
 
 export LibProjectPath=./src/sql-d/SqlD.csproj
 dotnet build $LibProjectPath

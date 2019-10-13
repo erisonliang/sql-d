@@ -13,7 +13,7 @@
 		<copyright>Copyright 2019 RealOrko</copyright>
 		<tags>http, sql-d, sql-d.ui, sqlite, linux-x64</tags>
 		<dependencies>
-			<group targetFramework=".NETCoreApp2.2">
+			<group targetFramework=".NETCoreApp3.0">
 				<dependency id="sql-d" version="$version$" />
 				<dependency id="sql-d.start.linux-x64" version="$version$" />
 			</group>

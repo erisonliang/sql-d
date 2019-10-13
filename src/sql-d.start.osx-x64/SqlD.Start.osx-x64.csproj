@@ -2,15 +2,15 @@
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<TargetFrameworks>netcoreapp2.2</TargetFrameworks>
-		<RuntimeFrameworkVersion>2.2.2</RuntimeFrameworkVersion>
+		<TargetFrameworks>netcoreapp3.0</TargetFrameworks>
+		<RuntimeFrameworkVersion>3.0.0</RuntimeFrameworkVersion>
 		<RuntimeIdentifiers>osx-x64</RuntimeIdentifiers>
 		<StartupObject>SqlD.Start.osx_x64.Program</StartupObject>
 		<AssemblyName>SqlD.Start.osx-x64</AssemblyName>
 		<RootNamespace>SqlD.Start.osx_x64</RootNamespace>
 		<PlatformTarget>x64</PlatformTarget>
 		<NuSpecFile>sql-d.start.osx-x64.nuspec</NuSpecFile>
-		<NuSpecBasePath>bin/$(Configuration)/netcoreapp2.2/osx-x64/publish/</NuSpecBasePath>
+		<NuSpecBasePath>bin/$(Configuration)/netcoreapp3.0/osx-x64/publish/</NuSpecBasePath>
 		<NoWarn>$(NoWarn);MSB4011;NU1603;NU5125;NU5100</NoWarn>
 	</PropertyGroup>
 

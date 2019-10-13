@@ -13,7 +13,7 @@
         <copyright>Copyright 2019 RealOrko</copyright>
         <tags>http, sql-d, sqlite</tags>
         <dependencies>
-            <group targetFramework=".NETCoreApp2.2">
+            <group targetFramework=".NETCoreApp3.0">
                 <dependency id="Microsoft.AspNetCore" version="2.2.0" exclude="Build,Analyzers" />
                 <dependency id="Microsoft.AspNetCore.Cors" version="2.2.0" exclude="Build,Analyzers" />
                 <dependency id="Microsoft.AspNetCore.Hosting" version="2.2.0" exclude="Build,Analyzers" />
@@ -36,6 +36,6 @@
 		</references>
     </metadata>
 	<files>
-		<file src="SqlD.dll" target="lib/netcoreapp2.2" />
+		<file src="SqlD.dll" target="lib/netcoreapp3.0" />
 	</files>
 </package>
