@@ -14,10 +14,10 @@
         <PackageReference Include="System.Data.SQLite.Core" Version="1.0.111" />
         <PackageReference Include="NSwag.Annotations" Version="13.1.2" />
         <PackageReference Include="NSwag.AspNetCore" Version="13.1.2" />
-        <PackageReference Include="sql-d" Version="1.0.10" />
-        <PackageReference Include="sql-d.start.linux-x64" Version="1.0.10" />
-        <PackageReference Include="sql-d.start.osx-x64" Version="1.0.10" />
-        <PackageReference Include="sql-d.start.win-x64" Version="1.0.10" />
+        <PackageReference Include="sql-d" Version="1.0.9" />
+        <PackageReference Include="sql-d.start.linux-x64" Version="1.0.9" />
+        <PackageReference Include="sql-d.start.osx-x64" Version="1.0.9" />
+        <PackageReference Include="sql-d.start.win-x64" Version="1.0.9" />
     </ItemGroup>
     <ItemGroup>
         <None Update="Configuration\appsettings.tests.json">
