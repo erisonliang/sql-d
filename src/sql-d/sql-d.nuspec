@@ -35,6 +35,6 @@
 		</references>
 	</metadata>
 	<files>
-		<file src="SqlD.dll" target="lib/netcoreapp3.0" />
+		<file src="SqlD.dll" target="lib/netcoreapp3.1" />
 	</files>
 </package>
