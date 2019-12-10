@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
-using Microsoft.AspNetCore.Http.Internal;
 using Newtonsoft.Json;
 using SqlD.Network.Client;
 using SqlD.Network.Server.Api.Db.Model;
@@ -77,7 +76,7 @@ namespace SqlD.Network.Server.Middleware
 
 		public void BeforeInvoke_BeforeRequestRead(HttpContext context)
 		{
-			context.Request.EnableRewind();
+			context.Request.EnableBuffering();
 		}
 
 		public void BeforeInvoke_AfterRequestRead(HttpContext context)
