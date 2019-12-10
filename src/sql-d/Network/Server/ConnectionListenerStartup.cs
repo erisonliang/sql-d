@@ -25,7 +25,7 @@ namespace SqlD.Network.Server
             services.AddCors();
             services.AddControllers();
 
-            services.AddSwaggerDocument(settings =>
+            services.AddOpenApiDocument(settings =>
             {
                 settings.DocumentName = "v1";
                 settings.Title = "[ sql-d ]";
