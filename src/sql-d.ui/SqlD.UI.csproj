@@ -16,6 +16,7 @@
 	<Import Project="../../version.props" />
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
 		<PackageReference Include="Microsoft.Build.Tasks.Core" Version="16.3.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />

@@ -10,7 +10,7 @@
 		<RootNamespace>SqlD.Start.win_x64</RootNamespace>
 		<PlatformTarget>x64</PlatformTarget>
 		<NuSpecFile>sql-d.start.win-x64.nuspec</NuSpecFile>
-		<NuSpecBasePath>bin/$(Configuration)/netcoreapp3.0/win-x64/publish/</NuSpecBasePath>
+		<NuSpecBasePath>bin/$(Configuration)/netcoreapp3.1/win-x64/publish/</NuSpecBasePath>
 		<NoWarn>$(NoWarn);MSB4011;NU1603;NU5125;NU5100</NoWarn>
 	</PropertyGroup>
 
@@ -31,6 +31,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
 		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.111" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="3.0.0" />

@@ -3,14 +3,14 @@
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
 		<IsPackable>true</IsPackable>
-		<TargetFrameworks>netcoreapp3.0</TargetFrameworks>
+		<TargetFrameworks>netcoreapp3.1</TargetFrameworks>
 		<RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
 		<TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-		<RuntimeFrameworkVersion>3.0.0</RuntimeFrameworkVersion>
+		<RuntimeFrameworkVersion>3.1.0</RuntimeFrameworkVersion>
 		<PlatformTarget>x64</PlatformTarget>
 		<NuSpecFile>sql-d.ui.win-x64.nuspec</NuSpecFile>
-		<NuSpecBasePath>bin/$(Configuration)/netcoreapp3.0/win-x64/publish/</NuSpecBasePath>
+		<NuSpecBasePath>bin/$(Configuration)/netcoreapp3.1/win-x64/publish/</NuSpecBasePath>
 		<AssemblyName>SqlD.UI.win-x64</AssemblyName>
 		<StartupObject>SqlD.UI.Program</StartupObject>
 		<RootNamespace>SqlD.UI</RootNamespace>
@@ -20,13 +20,7 @@
 	<Import Project="../../version.props" />
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
-		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
 		<PackageReference Include="Microsoft.Build.Tasks.Core" Version="16.3.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />

@@ -22,6 +22,7 @@
                 <dependency id="System.Data.SQLite.Core" version="1.0.109.2" exclude="Build,Analyzers" />
                 <dependency id="System.IO.Compression.ZipFile" version="4.3.0" exclude="Build,Analyzers" />
                 <dependency id="System.Runtime.Serialization.Json" version="4.3.0" exclude="Build,Analyzers" />
+                <dependency id="Microsoft.AspNetCore.Mvc.NewtonsoftJson" version="3.1.0" exclude="Build,Analyzers" />
             </group>
         </dependencies>
         <frameworkReferences>
