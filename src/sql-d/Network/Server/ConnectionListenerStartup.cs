@@ -2,7 +2,6 @@ using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using SqlD.Configuration;
-using SqlD.Configuration.Model;
 using SqlD.Network.Server.Middleware;
 
 namespace SqlD.Network.Server
@@ -25,12 +24,12 @@ namespace SqlD.Network.Server
             services.AddCors();
             services.AddControllers();
 
-            services.AddOpenApiDocument(settings =>
+            /*services.AddOpenApiDocument(settings =>
             {
                 settings.DocumentName = "v1";
                 settings.Title = "[ sql-d ]";
                 settings.Version = "1.0.0";
-            });
+            });*/
         }
 
         public void Configure(IApplicationBuilder app)
@@ -41,10 +40,11 @@ namespace SqlD.Network.Server
             app.Use(async (ctx, next) => await middleware.InvokeAsync(ctx, next));
 
             app.UseCors(x => x.AllowAnyOrigin());
+            app.UseRouting();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
-            app.UseOpenApi();
-            app.UseSwaggerUi3();
+            /*app.UseOpenApi();
+            app.UseSwaggerUi3();*/
         }
     }
 }
