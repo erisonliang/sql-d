@@ -20,7 +20,6 @@ namespace SqlD.UI
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             var configuration = SqlDConfig.Get(typeof(Startup).Assembly);
@@ -29,9 +28,11 @@ namespace SqlD.UI
             services.AddSingleton(EndPoint.FromUri("http://localhost:5000"));
             services.AddSingleton(x => SqlDStart.NewDb().ConnectedTo("sql-d/ui", "sql-d.ui.db", SqlDPragmaModel.Default));
 
-            services.AddControllers();
-
-            services.AddSwaggerDocument(settings =>
+            services
+                .AddMvc((options) => { options.EnableEndpointRouting = false; })
+                .AddJsonOptions(options => { options.JsonSerializerOptions.IgnoreNullValues = true; });
+            
+            services.AddOpenApiDocument(settings =>
             {
                 settings.DocumentName = "v1";
                 settings.Title = "[ sql-d/ui ]";
@@ -39,7 +40,6 @@ namespace SqlD.UI
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -52,8 +52,8 @@ namespace SqlD.UI
             }
 
             app.UseStaticFiles();
-
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseRouting();
+            app.UseMvc();
 
             app.UseOpenApi();
             app.UseSwaggerUi3();
