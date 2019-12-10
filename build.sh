@@ -26,7 +26,7 @@ case "$(uname -s)" in
 esac
 
 Configuration=Release
-TargetFramework=netcoreapp3.0
+TargetFramework=netcoreapp3.1
 
 dotnet add ./tests/sql-d/SqlD.Tests.csproj package sql-d --source $(pwd)/build --package-directory $(pwd)/build 
 dotnet add ./tests/sql-d/SqlD.Tests.csproj package "sql-d.start.linux-x64" --source $(pwd)/build --package-directory $(pwd)/build
