@@ -27,14 +27,16 @@ namespace SqlD.Network.Server
             services.AddSingleton(x => SqlDStart.NewDb().ConnectedTo(DbConnectionName, DbConnectionDbName, PragmaOptions));
 
             services.AddCors();
-            services.AddControllers();
+            services
+                .AddMvc((options) => { options.EnableEndpointRouting = false; })
+                .AddJsonOptions(options => { options.JsonSerializerOptions.IgnoreNullValues = true; });
 
-            /*services.AddOpenApiDocument(settings =>
+            services.AddOpenApiDocument(settings =>
             {
                 settings.DocumentName = "v1";
                 settings.Title = "[ sql-d ]";
                 settings.Version = "1.0.0";
-            });*/
+            });
         }
 
         public void Configure(IApplicationBuilder app)
@@ -46,10 +48,10 @@ namespace SqlD.Network.Server
 
             app.UseCors(x => x.AllowAnyOrigin());
             app.UseRouting();
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseMvc();
 
-            /*app.UseOpenApi();
-            app.UseSwaggerUi3();*/
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
         }
     }
 }
