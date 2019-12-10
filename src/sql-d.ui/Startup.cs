@@ -28,7 +28,7 @@ namespace SqlD.UI
             services.AddSingleton(EndPoint.FromUri("http://localhost:5000"));
             services.AddSingleton(x => SqlDStart.NewDb().ConnectedTo("sql-d/ui", "sql-d.ui.db", SqlDPragmaModel.Default));
 
-            services.AddControllers().AddNewtonsoftJson();
+            services.AddControllersWithViews().AddNewtonsoftJson();
             
             services.AddOpenApiDocument(settings =>
             {
@@ -38,19 +38,15 @@ namespace SqlD.UI
             });
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
-
             app.UseStaticFiles();
-            app.UseEndpoints(opts => opts.MapControllers());
+            app.UseRouting();
+            app.UseEndpoints(opts =>
+            {
+                opts.MapControllers();
+                opts.MapRazorPages();
+            });
 
             app.UseOpenApi();
             app.UseSwaggerUi3();

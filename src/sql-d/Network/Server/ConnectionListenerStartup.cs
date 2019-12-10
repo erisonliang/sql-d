@@ -27,7 +27,7 @@ namespace SqlD.Network.Server
             services.AddSingleton(x => SqlDStart.NewDb().ConnectedTo(DbConnectionName, DbConnectionDbName, PragmaOptions));
 
             services.AddCors();
-            services.AddControllers().AddNewtonsoftJson();
+            services.AddControllersWithViews().AddNewtonsoftJson();
 
             services.AddOpenApiDocument(settings =>
             {
@@ -44,8 +44,12 @@ namespace SqlD.Network.Server
             var middleware = new ForwardingMiddleware(ForwardAddresses);
             app.Use(async (ctx, next) => await middleware.InvokeAsync(ctx, next));
 
+            app.UseRouting();
             app.UseCors(x => x.AllowAnyOrigin());
-            app.UseEndpoints(opts => opts.MapControllers());
+            app.UseEndpoints(opts =>
+            {
+                opts.MapControllers();
+            });
 
             app.UseOpenApi();
             app.UseSwaggerUi3();
