@@ -3,6 +3,7 @@ using System.IO;
 using System.Reflection;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using SqlD.Logging;
 
 namespace SqlD.UI
@@ -17,7 +18,7 @@ namespace SqlD.UI
 	        var config = typeof(Program).Assembly.SqlDGo("appsettings.json");
 	        try
 	        {
-		        BuildWebHost(args)?.Run();
+		        BuildWebHost(args)?.Build().Run();
 	        }
 	        finally
 	        {
@@ -25,7 +26,7 @@ namespace SqlD.UI
 	        }
 		}
 
-		public static IWebHost BuildWebHost(string[] args)
+		public static IHostBuilder BuildWebHost(string[] args)
 	    {
 		    try
 		    {
@@ -34,13 +35,8 @@ namespace SqlD.UI
                 Log.Out.Info($"Content Root: {RootDirectoryPath}");
                 Log.Out.Info($"Current directory: {Environment.CurrentDirectory}");
 
-                return WebHost.CreateDefaultBuilder(args)
-					.UseKestrel(opts => {
-						opts.ListenAnyIP(5000);
-					})
-					.UseContentRoot(RootDirectoryPath)
-				    .UseStartup<Startup>()
-				    .Build();
+                return Host.CreateDefaultBuilder(args)
+	                .ConfigureWebHostDefaults(builder => { builder.UseStartup<Startup>(); });
 		    }
 		    catch (Exception err)
 		    {
