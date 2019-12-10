@@ -13,7 +13,7 @@
         <copyright>Copyright 2019 RealOrko</copyright>
         <tags>http, sqld, sql-d, sql-d.start, sqlite, osx-x64</tags>
         <dependencies>
-            <group targetFramework=".NETCoreApp3.0">
+            <group targetFramework=".NETCoreApp3.1">
 	            <dependency id="sql-d" version="$version$" />
             </group>
         </dependencies>
@@ -26,6 +26,6 @@
     </metadata>
 	<files>
 		<file src="**" target="contentFiles/any/any/sql-d.start/osx-x64" />
-		<file src="SqlD.Start.osx-x64.dll" target="lib/netcoreapp3.0" />
+		<file src="SqlD.Start.osx-x64.dll" target="lib/netcoreapp3.1" />
 	</files>
 </package>

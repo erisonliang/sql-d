@@ -29,11 +29,7 @@ namespace SqlD.UI
             services.AddSingleton(EndPoint.FromUri("http://localhost:5000"));
             services.AddSingleton(x => SqlDStart.NewDb().ConnectedTo("sql-d/ui", "sql-d.ui.db", SqlDPragmaModel.Default));
 
-            services.AddMvc()
-                .AddJsonOptions(options =>
-                {
-                    options.JsonSerializerOptions.IgnoreNullValues = true;
-                });
+            services.AddControllers();
 
             services.AddSwaggerDocument(settings =>
             {
@@ -57,14 +53,9 @@ namespace SqlD.UI
 
             app.UseStaticFiles();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
-            app.UseSwagger();
+            app.UseOpenApi();
             app.UseSwaggerUi3();
         }
     }
