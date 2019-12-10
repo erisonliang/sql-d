@@ -27,9 +27,7 @@ namespace SqlD.Network.Server
             services.AddSingleton(x => SqlDStart.NewDb().ConnectedTo(DbConnectionName, DbConnectionDbName, PragmaOptions));
 
             services.AddCors();
-            services
-                .AddMvc((options) => { options.EnableEndpointRouting = false; })
-                .AddJsonOptions(options => { options.JsonSerializerOptions.IgnoreNullValues = true; });
+            services.AddControllers();
 
             services.AddOpenApiDocument(settings =>
             {
@@ -47,8 +45,7 @@ namespace SqlD.Network.Server
             app.Use(async (ctx, next) => await middleware.InvokeAsync(ctx, next));
 
             app.UseCors(x => x.AllowAnyOrigin());
-            app.UseRouting();
-            app.UseMvc();
+            app.UseEndpoints(opts => opts.MapControllers());
 
             app.UseOpenApi();
             app.UseSwaggerUi3();

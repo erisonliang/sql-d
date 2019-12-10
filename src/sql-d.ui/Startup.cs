@@ -28,9 +28,7 @@ namespace SqlD.UI
             services.AddSingleton(EndPoint.FromUri("http://localhost:5000"));
             services.AddSingleton(x => SqlDStart.NewDb().ConnectedTo("sql-d/ui", "sql-d.ui.db", SqlDPragmaModel.Default));
 
-            services
-                .AddMvc((options) => { options.EnableEndpointRouting = false; })
-                .AddJsonOptions(options => { options.JsonSerializerOptions.IgnoreNullValues = true; });
+            services.AddControllers();
             
             services.AddOpenApiDocument(settings =>
             {
@@ -52,8 +50,7 @@ namespace SqlD.UI
             }
 
             app.UseStaticFiles();
-            app.UseRouting();
-            app.UseMvc();
+            app.UseEndpoints(opts => opts.MapControllers());
 
             app.UseOpenApi();
             app.UseSwaggerUi3();
