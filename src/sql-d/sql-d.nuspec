@@ -14,6 +14,7 @@
         <tags>http, sql-d, sqlite</tags>
         <dependencies>
             <group targetFramework=".NETCoreApp3.1">
+                <dependency id="Microsoft.AspNetCore.Mvc.NewtonsoftJson" version="3.1.0" exclude="Build,Analyzers" />
                 <dependency id="Microsoft.Build.Tasks.Core" version="16.3.0" exclude="Build,Analyzers" />
                 <dependency id="Microsoft.Extensions.Configuration" version="3.0.0" exclude="Build,Analyzers" />
                 <dependency id="NSwag.Annotations" version="13.1.6" exclude="Build,Analyzers" />

@@ -28,7 +28,7 @@ namespace SqlD.UI
             services.AddSingleton(EndPoint.FromUri("http://localhost:5000"));
             services.AddSingleton(x => SqlDStart.NewDb().ConnectedTo("sql-d/ui", "sql-d.ui.db", SqlDPragmaModel.Default));
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             
             services.AddOpenApiDocument(settings =>
             {

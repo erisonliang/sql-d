@@ -27,7 +27,7 @@ namespace SqlD.Network.Server
             services.AddSingleton(x => SqlDStart.NewDb().ConnectedTo(DbConnectionName, DbConnectionDbName, PragmaOptions));
 
             services.AddCors();
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
 
             services.AddOpenApiDocument(settings =>
             {
