@@ -2,6 +2,7 @@ using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using SqlD.Configuration;
+using SqlD.Configuration.Model;
 using SqlD.Network.Server.Middleware;
 
 namespace SqlD.Network.Server
@@ -12,6 +13,10 @@ namespace SqlD.Network.Server
         public static EndPoint ListenerAddress;
         public static DbConnection DbConnection;
         public static EndPoint[] ForwardAddresses;
+        
+        public string DbConnectionName = DbConnection.Name;
+        public string DbConnectionDbName = DbConnection.DatabaseName;
+        public SqlDPragmaModel PragmaOptions = DbConnection.PragmaOptions;
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -19,7 +24,7 @@ namespace SqlD.Network.Server
 
             services.AddSingleton(configuration);
             services.AddSingleton(ListenerAddress);
-            services.AddSingleton(x => SqlDStart.NewDb().ConnectedTo(DbConnection.Name, DbConnection.DatabaseName, DbConnection.PragmaOptions));
+            services.AddSingleton(x => SqlDStart.NewDb().ConnectedTo(DbConnectionName, DbConnectionDbName, PragmaOptions));
 
             services.AddCors();
             services.AddControllers();
