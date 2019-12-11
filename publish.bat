@@ -1,6 +1,6 @@
 @ECHO off
 
-CALL kill.bat
+REM CALL kill.bat
 
 ECHO.
 ECHO [SQL-D]:PUBLISH/
