@@ -9,6 +9,8 @@ ECHO "Please make sure you call `publish` first. This will fail otherwise."
 SET Configuration=Release
 SET TargetFramework=netcoreapp3.1
 
+dir .\build\sql-d.*
+
 dotnet restore .\tests\sql-d\SqlD.Tests.csproj
 
 dotnet add .\tests\sql-d\SqlD.Tests.csproj package sql-d --source %CD%\build --package-directory %CD%\build
