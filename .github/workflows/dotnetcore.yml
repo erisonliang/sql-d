@@ -23,7 +23,7 @@ jobs:
         with:
           dotnet-version: 3.1.100
       - name: Build with dotnet win-x64
-        run: .\publish.bat && .\build.bat
+        run: .\publish.bat & .\build.bat
 
   build-macos:
     runs-on: macos-latest
