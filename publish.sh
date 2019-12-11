@@ -36,6 +36,11 @@ export StartWinX64ProjectPath=./src/sql-d.start.win-x64/SqlD.Start.win-x64.cspro
 dotnet publish $StartWinX64ProjectPath -r win-x64 -f $TargetFramework --self-contained
 dotnet pack $StartWinX64ProjectPath -o ./build --include-symbols
 
+dotnet add ./src/sql-d.ui/SqlD.UI.csproj package sql-d --source $(pwd)/build --package-directory $(pwd)/build 
+dotnet add ./src/sql-d.ui/SqlD.UI.csproj package "sql-d.start.linux-x64" --source $(pwd)/build --package-directory $(pwd)/build
+dotnet add ./src/sql-d.ui/SqlD.UI.csproj package "sql-d.start.osx-x64" --source $(pwd)/build --package-directory $(pwd)/build
+dotnet add ./src/sql-d.ui/SqlD.UI.csproj package "sql-d.start.win-x64" --source $(pwd)/build --package-directory $(pwd)/build
+
 export UIProjectPath=./src/sql-d.ui/SqlD.UI.csproj
 dotnet restore $UIProjectPath -s ./build
 dotnet build $UIProjectPath

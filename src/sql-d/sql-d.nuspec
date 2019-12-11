@@ -31,7 +31,9 @@
             </group>
         </frameworkReferences>
 		<references>
-			<reference file="SqlD.dll" />
+            <group targetFramework="netcoreapp3.1">
+			    <reference file="SqlD.dll" />
+            </group>
 		</references>
 	</metadata>
 	<files>

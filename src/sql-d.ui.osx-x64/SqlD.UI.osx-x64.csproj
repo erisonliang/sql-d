@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
 		<IsPackable>true</IsPackable>
-		<TargetFrameworks>netcoreapp3.1</TargetFrameworks>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
 		<RuntimeIdentifiers>osx-x64</RuntimeIdentifiers>
 		<TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
