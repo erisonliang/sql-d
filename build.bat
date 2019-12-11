@@ -10,7 +10,6 @@ SET Configuration=Release
 SET TargetFramework=netcoreapp3.1
 
 dotnet restore .\tests\sql-d\SqlD.Tests.csproj
-dotnet nuget locals global-packages --clear
 
 dotnet add .\tests\sql-d\SqlD.Tests.csproj package sql-d --source %CD%\build --package-directory .\build
 dotnet add .\tests\sql-d\SqlD.Tests.csproj package sql-d.start.win-x64 --source %CD%\build --package-directory .\build
