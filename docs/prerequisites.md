@@ -4,9 +4,9 @@
 	<a href="https://github.com/RealOrko/sql-d/blob/master/docs/_.md#sqld-help---contents">[Back to Contents]</a>
 </div>
 
-## Dotnet Core 2.2
+## Dotnet Core
 
-Please make sure you have [dotnet core 2.2+ SDK](https://dotnet.microsoft.com/download).
+Please make sure you have the latest [dotnet core SDK](https://dotnet.microsoft.com/download).
 
  *See Also*:
 
