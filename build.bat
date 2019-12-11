@@ -1,7 +1,5 @@
 @ECHO off
 
-CALL kill.bat
-
 ECHO.
 ECHO [SQL-D]:BUILD/
 ECHO.
