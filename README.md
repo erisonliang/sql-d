@@ -1,4 +1,4 @@
-# SqlD
+# SqlD ![]https://github.com/realorko/sql-d/workflows/.NET%20Core/badge.svg
 
 HTTP persistence using [Sqlite](https://sqlite.org). 
 
