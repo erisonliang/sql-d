@@ -20,10 +20,10 @@
         <PackageReference Include="System.Data.SQLite" Version="1.0.111" />
         <PackageReference Include="System.Data.SQLite.Core" Version="1.0.111" />
         <PackageReference Include="System.IO.Compression.ZipFile" Version="4.3.0" />
-        <PackageReference Include="sql-d" Version="1.0.12" />
-        <PackageReference Include="sql-d.start.linux-x64" Version="1.0.12" />
-        <PackageReference Include="sql-d.start.osx-x64" Version="1.0.12" />
-        <PackageReference Include="sql-d.start.win-x64" Version="1.0.12" />
+        <PackageReference Include="sql-d" Version="1.0.15" />
+        <PackageReference Include="sql-d.start.linux-x64" Version="1.0.15" />
+        <PackageReference Include="sql-d.start.osx-x64" Version="1.0.15" />
+        <PackageReference Include="sql-d.start.win-x64" Version="1.0.15" />
     </ItemGroup>
     <ItemGroup>
         <None Update="Configuration\appsettings.tests.json">

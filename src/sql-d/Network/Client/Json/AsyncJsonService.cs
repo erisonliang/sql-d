@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.IO.Compression;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -167,7 +168,10 @@ namespace SqlD.Network.Client.Json
 
         private async Task<T> DeserialiseResponse<T>(HttpResponseMessage result)
         {
-            var payload = await result.Content.ReadAsStringAsync();
+            await using var responseStream = await result.Content.ReadAsStreamAsync();
+            await using var decompressedStream = new GZipStream(responseStream, CompressionMode.Decompress);
+            using var streamReader = new System.IO.StreamReader(decompressedStream);
+            var payload = await streamReader.ReadToEndAsync();
             return JsonConvert.DeserializeObject<T>(payload, settings);
         }
     }
