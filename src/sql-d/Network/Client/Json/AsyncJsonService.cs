@@ -29,6 +29,7 @@ namespace SqlD.Network.Client.Json
             client = new HttpClient();
 			client.Timeout = TimeSpan.FromMilliseconds(httpClientTimeoutInMilliseconds); 
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
             settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
         }
 

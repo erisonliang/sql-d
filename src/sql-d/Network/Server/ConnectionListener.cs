@@ -4,6 +4,7 @@ using System.Reflection;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using SqlD.Logging;
 
 namespace SqlD.Network.Server
@@ -35,8 +36,8 @@ namespace SqlD.Network.Server
 
 			lock (Synchronise)
 			{
-				this.EndPoint = listenerEndPoint;
-				this.DbConnection = listenerDbConnection;
+				EndPoint = listenerEndPoint;
+				DbConnection = listenerDbConnection;
 
 			    ConnectionListenerStartup.StartAssembly = startAssembly;
 			    ConnectionListenerStartup.DbConnection = listenerDbConnection;
@@ -58,6 +59,13 @@ namespace SqlD.Network.Server
 								opts.ListenAnyIP(listenerEndPoint.Port);
 							});
 							builder.UseUrls(listenerEndPoint.ToWildcardUrl());
+						}).ConfigureLogging(logging =>
+						{
+							logging.ClearProviders();
+							logging.AddConsole(opts =>
+							{
+								opts.LogToStandardErrorThreshold = LogLevel.Error;
+							});
 						}).Build();
 
 					host.Start();
