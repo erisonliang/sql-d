@@ -16,5 +16,5 @@ dotnet add .\tests\sql-d\SqlD.Tests.csproj package sql-d.start.win-x64 --source 
 dotnet add .\tests\sql-d\SqlD.Tests.csproj package sql-d.start.linux-x64 --source %CD%\build --package-directory .\build
 dotnet add .\tests\sql-d\SqlD.Tests.csproj package sql-d.start.osx-x64 --source %CD%\build --package-directory .\build
 
-dotnet build .\tests\sql-d\SqlD.Tests.csproj -r win-x64 -c Debug --source %CD%\build
+dotnet build .\tests\sql-d\SqlD.Tests.csproj -r win-x64 -c Debug
 dotnet test .\tests\sql-d\SqlD.Tests.csproj -r win-x64 -c Debug
