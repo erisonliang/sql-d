@@ -1,4 +1,4 @@
-@ECHO off
+REM @ECHO off
 
 ECHO.
 ECHO [SQL-D]:BUILD/
