@@ -1,0 +1,2 @@
+publish.bat
+build.bat
