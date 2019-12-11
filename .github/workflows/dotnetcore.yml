@@ -3,7 +3,7 @@ name: .NET Core
 on: [push]
 
 jobs:
-  build-ubuntu:
+  build-linux-x64:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -14,7 +14,7 @@ jobs:
       - name: Build with dotnet linux-x64
         run: ./publish.sh && ./build.sh
 
-  build-windows:
+  build-win-x64:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1
@@ -25,7 +25,7 @@ jobs:
       - name: Build with dotnet win-x64
         run: .\publish.bat & .\build.bat
 
-  build-macos:
+  build-osx-x64:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
