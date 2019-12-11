@@ -18,20 +18,20 @@
 
 *Linux*:
 ```
-dotnet publish ./src/sql-d.start.linux-x64 -c Release -f netcoreapp3.0 -r linux-x64
-./src/sql-d.start.linux-x64/bin/Release/netcoreapp3.0/linux-x64/publish/SqlD.Start.linux-x64
+dotnet publish ./src/sql-d.start.linux-x64 -c Release -f netcoreapp3.1 -r linux-x64
+./src/sql-d.start.linux-x64/bin/Release/netcoreapp3.1/linux-x64/publish/SqlD.Start.linux-x64
 ```
 
 *OSX*:
 ```
-dotnet publish ./src/sql-d.start.osx-x64 -c Release -f netcoreapp3.0 -r osx-x64
-./src/sql-d.start.osx-x64/bin/Release/netcoreapp3.0/osx-x64/publish/SqlD.Start.osx-x64
+dotnet publish ./src/sql-d.start.osx-x64 -c Release -f netcoreapp3.1 -r osx-x64
+./src/sql-d.start.osx-x64/bin/Release/netcoreapp3.1/osx-x64/publish/SqlD.Start.osx-x64
 ```
 
 *Windows 10*:
 ```
-dotnet publish .\src\sql-d.start.win-x64 -c Release -f netcoreapp3.0 -r win-x64
-.\src\sql-d.start.win-x64\bin\Release\netcoreapp3.0\win-x64\publish\SqlD.Start.win-x64.exe
+dotnet publish .\src\sql-d.start.win-x64 -c Release -f netcoreapp3.1 -r win-x64
+.\src\sql-d.start.win-x64\bin\Release\netcoreapp3.1\win-x64\publish\SqlD.Start.win-x64.exe
 ```
 
 Then please browse to http://localhost:5000.
@@ -120,20 +120,20 @@ Here are the commands for executing the SqlD.UI:
 
 *Linux*:
 ```
-dotnet publish ./src/sql-d.ui -c Release -f netcoreapp3.0 -r linux-x64
-./src/sql-d.ui/bin/Release/netcoreapp3.0/linux-x64/publish/SqlD.UI
+dotnet publish ./src/sql-d.ui -c Release -f netcoreapp3.1 -r linux-x64
+./src/sql-d.ui/bin/Release/netcoreapp3.1/linux-x64/publish/SqlD.UI
 ```
 
 *OSX*:
 ```
-dotnet publish ./src/sql-d.ui -c Release -f netcoreapp3.0 -r osx-x64
-./src/sql-d.ui/bin/Release/netcoreapp3.0/osx-x64/publish/SqlD.UI
+dotnet publish ./src/sql-d.ui -c Release -f netcoreapp3.1 -r osx-x64
+./src/sql-d.ui/bin/Release/netcoreapp3.1/osx-x64/publish/SqlD.UI
 ```
 
 *Windows 10*:
 ```
-dotnet publish .\src\sql-d.start.win-x64 -c Release -f netcoreapp3.0 -r win-x64
-.\src\sql-d.ui\bin\Release\netcoreapp3.0\win-x64\publish\SqlD.UI.exe
+dotnet publish .\src\sql-d.start.win-x64 -c Release -f netcoreapp3.1 -r win-x64
+.\src\sql-d.ui\bin\Release\netcoreapp3.1\win-x64\publish\SqlD.UI.exe
 ```
 
 Then please browse to http://localhost:5000.

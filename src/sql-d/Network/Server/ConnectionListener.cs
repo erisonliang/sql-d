@@ -3,6 +3,8 @@ using System.Net;
 using System.Reflection;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using SqlD.Logging;
 
 namespace SqlD.Network.Server
@@ -11,7 +13,7 @@ namespace SqlD.Network.Server
 	{
 		private static readonly object Synchronise = new object();
 
-		private IWebHost webhost;
+		private IHost host;
 
 		public DbConnection DbConnection { get; private set; }
 		public EndPoint EndPoint { get; private set; }
@@ -34,8 +36,8 @@ namespace SqlD.Network.Server
 
 			lock (Synchronise)
 			{
-				this.EndPoint = listenerEndPoint;
-				this.DbConnection = listenerDbConnection;
+				EndPoint = listenerEndPoint;
+				DbConnection = listenerDbConnection;
 
 			    ConnectionListenerStartup.StartAssembly = startAssembly;
 			    ConnectionListenerStartup.DbConnection = listenerDbConnection;
@@ -44,20 +46,29 @@ namespace SqlD.Network.Server
 
 				try
 				{
-					this.webhost = WebHost.CreateDefaultBuilder()
-						.UseStartup<ConnectionListenerStartup>()
-						.UseKestrel(opts =>
+					host = Host.CreateDefaultBuilder()
+						.ConfigureWebHostDefaults(builder =>
 						{
-							opts.AddServerHeader = true;
-							opts.Limits.MaxRequestBodySize = null;
-							opts.Limits.MaxResponseBufferSize = null;
-							opts.Limits.MaxConcurrentConnections = null;
-							opts.ListenAnyIP(listenerEndPoint.Port);
-						})
-						.UseUrls(listenerEndPoint.ToWildcardUrl())
-						.Build();
+							builder.UseStartup<ConnectionListenerStartup>();
+							builder.ConfigureKestrel(opts =>
+							{
+								opts.AddServerHeader = true;
+								opts.Limits.MaxRequestBodySize = null;
+								opts.Limits.MaxResponseBufferSize = null;
+								opts.Limits.MaxConcurrentConnections = null;
+								opts.ListenAnyIP(listenerEndPoint.Port);
+							});
+							builder.UseUrls(listenerEndPoint.ToWildcardUrl());
+						}).ConfigureLogging(logging =>
+						{
+							logging.ClearProviders();
+							logging.AddConsole(opts =>
+							{
+								opts.LogToStandardErrorThreshold = LogLevel.Error;
+							});
+						}).Build();
 
-					webhost.Start();
+					host.Start();
 
 					Log.Out.Info($"Connection listener on {listenerEndPoint.ToUrl()}");
 				}
@@ -74,7 +85,7 @@ namespace SqlD.Network.Server
 		public virtual void Dispose()
 		{
 			ConnectionListenerFactory.Remove(this);
-			webhost.StopAsync().Wait();
+			host.StopAsync().Wait();
 			Log.Out.Info($"Disposed listener on {EndPoint.ToUrl()}");
 		}
 	}

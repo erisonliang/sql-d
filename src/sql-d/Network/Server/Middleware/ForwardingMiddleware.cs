@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
-using Microsoft.AspNetCore.Http.Internal;
 using Newtonsoft.Json;
 using SqlD.Network.Client;
 using SqlD.Network.Server.Api.Db.Model;
@@ -32,14 +31,14 @@ namespace SqlD.Network.Server.Middleware
 					if (context.Request.GetDisplayUrl().ToLower().Contains("/api/db/command"))
 					{
 						streamReader = new StreamReader(context.Request.Body);
-						var commandRequest = Deserialise<Command>(streamReader);
+						var commandRequest = await Deserialise<Command>(streamReader);
 						await ForwardToClients(async client => await client.PostCommandAsync(commandRequest));
 					}
 
 					if (context.Request.GetDisplayUrl().ToLower().Contains("/api/db/scalar"))
 					{
 						streamReader = new StreamReader(context.Request.Body);
-						var commandRequest = Deserialise<Command>(streamReader);
+						var commandRequest = await Deserialise<Command>(streamReader);
 						await ForwardToClients(async client => await client.PostScalarAsync(commandRequest));
 					}
 				}
@@ -77,7 +76,7 @@ namespace SqlD.Network.Server.Middleware
 
 		public void BeforeInvoke_BeforeRequestRead(HttpContext context)
 		{
-			context.Request.EnableRewind();
+			context.Request.EnableBuffering();
 		}
 
 		public void BeforeInvoke_AfterRequestRead(HttpContext context)
@@ -85,9 +84,9 @@ namespace SqlD.Network.Server.Middleware
 			context.Request.Body.Position = 0;
 		}
 
-		private static T Deserialise<T>(StreamReader bodyRequeStreamReader)
+		private static async Task<T> Deserialise<T>(StreamReader bodyRequeStreamReader)
 		{
-			var body = bodyRequeStreamReader.ReadToEnd();
+			var body = await bodyRequeStreamReader.ReadToEndAsync();
 			var request = JsonConvert.DeserializeObject<T>(body);
 			return request;
 		}
