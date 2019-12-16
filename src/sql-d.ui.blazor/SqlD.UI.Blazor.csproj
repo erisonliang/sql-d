@@ -4,4 +4,71 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
+        <PackageReference Include="Microsoft.Build.Tasks.Core" Version="16.3.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.0.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+        <PackageReference Include="NSwag.Annotations" Version="13.1.6" />
+        <PackageReference Include="NSwag.AspNetCore" Version="13.1.6" />
+        <PackageReference Include="System.Data.SQLite" Version="1.0.111" />
+        <PackageReference Include="System.Data.SQLite.Core" Version="1.0.111" />
+        <PackageReference Include="System.IO.Compression.ZipFile" Version="4.3.0" />
+        <PackageReference Include="sql-d" Version="1.0.15" />
+        <PackageReference Include="sql-d.start.linux-x64" Version="1.0.15" />
+        <PackageReference Include="sql-d.start.osx-x64" Version="1.0.15" />
+        <PackageReference Include="sql-d.start.win-x64" Version="1.0.15" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Watch Include="**\*.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UIControllers Include="Controllers\Api\QueryController.cs" />
+      <UIControllers Include="Controllers\Api\RootController.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UIServices Include="Services\Client\ClientFactory.cs" />
+      <UIServices Include="Services\ConfigService.cs" />
+      <UIServices Include="Services\ContextService.cs" />
+      <UIServices Include="Services\QueryService.cs" />
+      <UIServices Include="Services\Query\Actions\CommandAction.cs" />
+      <UIServices Include="Services\Query\Actions\DescribeAction.cs" />
+      <UIServices Include="Services\Query\Actions\IQueryAction.cs" />
+      <UIServices Include="Services\Query\Actions\QueryAction.cs" />
+      <UIServices Include="Services\Query\Actions\UnknownAction.cs" />
+      <UIServices Include="Services\Query\QueryCache.cs" />
+      <UIServices Include="Services\Query\QueryContext.cs" />
+      <UIServices Include="Services\Query\QueryToken.cs" />
+      <UIServices Include="Services\RegistryService.cs" />
+      <UIServices Include="Services\ServiceService.cs" />
+      <UIServices Include="Services\SurfaceService.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UIModels Include="Models\Discovery\LinkViewModel.cs" />
+      <UIModels Include="Models\ErrorViewModel.cs" />
+      <UIModels Include="Models\Query\CommandResultViewModel.cs" />
+      <UIModels Include="Models\Query\DescribeResultViewModel.cs" />
+      <UIModels Include="Models\Query\QueryResultViewModel.cs" />
+      <UIModels Include="Models\Query\UnknownResultViewModel.cs" />
+      <UIModels Include="Models\Registry\RegistryEntryViewModel.cs" />
+      <UIModels Include="Models\Registry\RegistryViewModel.cs" />
+      <UIModels Include="Models\Root\RootResultViewModel.cs" />
+      <UIModels Include="Models\Root\RootTableResultViewModel.cs" />
+      <UIModels Include="Models\Services\ServiceFormViewModel.cs" />
+      <UIModels Include="Models\Services\ServiceViewModel.cs" />
+      <UIModels Include="Models\Surface\SurfaceViewModel.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="appsettings.json">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+    </ItemGroup>
+
 </Project>

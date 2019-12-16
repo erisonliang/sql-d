@@ -1,5 +1,8 @@
-﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+﻿@using SqlD.UI.Models.Registry
+@using SqlD.UI.Services
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">[ sql-d ]</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -23,8 +26,24 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <select class="form-control mr-sm-2">
+            @foreach (var registry in Registry.Entries)
+            {
+                <option value="@registry.Uri">@registry.Name</option>
+            }
+            </select>
+            <button class="btn btn-primary my-2 my-sm-0" type="submit">Connect</button>
         </form>
     </div>
 </nav>
+
+@code {
+
+    private RegistryViewModel Registry = new RegistryViewModel(new List<RegistryEntryViewModel>());
+    
+    protected override async Task OnInitializedAsync()
+    {
+        Registry = await new RegistryService().GetServices();
+    }
+
+}

@@ -1,4 +1,21 @@
-﻿@page "/query"
+﻿@using SqlD.UI.Blazor.Shared.Components.Registry
+@using SqlD.UI.Models.Registry
+@using SqlD.UI.Services
+
+@page "/query"
 
 <h1>Query</h1>
 
+<RegistryList Registry="@Registry"></RegistryList> <!-- <- Wrong way of passing a parameter? -->
+
+@code {
+
+    public RegistryViewModel Registry { get; set; } = new RegistryViewModel(new List<RegistryEntryViewModel>());
+    
+    protected override async Task OnInitializedAsync()
+    {
+        Registry = await new RegistryService().GetServices();
+        //StateHasChanged(); // <- Should trigger change for async?
+    }
+
+}
