@@ -3,18 +3,16 @@
 
 @inject IHttpContextAccessor Context
 
-RENDER TOKEN <!-- Just to make sure the component is pulled in and rendered -->
-
-<div id="registryList" class="panel panel-default">
-	<div class="panel-heading text-left">
+<div class="card card-default">
+	<div class="card-header text-left">
 		<span style="float: right; top: -5px; position:relative">
-			<a href="/service/launch" class="btn btn-sm btn-default" title="Launch new service">
-				<i class="fas fa-plus-circle"></i>
+			<a type="button" href="/service/launch" class="btn btn-sm btn-outline-secondary" title="Launch new service">
+				<i class="fa fa-plus-circle"></i>
 			</a>
 		</span>
 		Registered Services
 	</div>
-	<div class="panel-body collapse" style="height:30px" aria-expanded="false">
+	<div class="card-body">
 		<table class="table table-bordered">
 			<thead>
 				<tr>
@@ -40,13 +38,13 @@ RENDER TOKEN <!-- Just to make sure the component is pulled in and rendered -->
 					<td align="left">@service.GetRedirectedAuthorityUri(Context.HttpContext.Request)</td>
 					<td align="left">@service.LastUpdated</td>
 					<td align="center">
-						<a target="_service_id_" href="@service.GetRedirectedUri(Context.HttpContext.Request)api/id" class="btn btn-xs btn-default" title="Service ID for @service.GetRedirectedUri(Context.HttpContext.Request)">
+						<button target="_service_id_" href="@service.GetRedirectedUri(Context.HttpContext.Request)api/id" class="btn btn-sm btn-outline-secondary" title="Service ID for @service.GetRedirectedUri(Context.HttpContext.Request)">
 							<i class="far fa-id-card"></i>
-						</a>
-						<a target="_service_swag_" href="@service.GetRedirectedUri(Context.HttpContext.Request)swagger" class="btn btn-xs btn-default" title="Swagger for @service.GetRedirectedUri(Context.HttpContext.Request)">
+						</button>
+						<button target="_service_swag_" href="@service.GetRedirectedUri(Context.HttpContext.Request)swagger" class="btn btn-sm btn-outline-secondary" title="Swagger for @service.GetRedirectedUri(Context.HttpContext.Request)">
 							<i class="fas fa-battery-full"></i>
-						</a>
-						<button service-uri="@service.GetRedirectedUri(Context.HttpContext.Request)" class="btn btn-xs btn-primary" title="Connect to @service.GetRedirectedUri(Context.HttpContext.Request)">
+						</button>
+						<button service-uri="@service.GetRedirectedUri(Context.HttpContext.Request)" class="btn btn-sm btn-primary" title="Connect to @service.GetRedirectedUri(Context.HttpContext.Request)">
 							<i class="fas fa-plug"></i>
 						</button>
 					</td>

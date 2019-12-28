@@ -32,7 +32,7 @@ namespace SqlD.UI.Services
 				results.AddRange(list);
 			}
 
-			return new RegistryViewModel(results);
+			return new RegistryViewModel(results.Concat(results).Concat(results).ToList());
 		}
 	}
 }

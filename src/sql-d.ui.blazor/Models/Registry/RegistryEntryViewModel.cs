@@ -58,11 +58,9 @@ namespace SqlD.UI.Models.Registry
 		{
 			if (Host.ToLower() == "localhost")
 			{
-				System.Console.WriteLine($"Testing1 ... {request.Scheme}://{request.Host.Host}:{Port}/");
 				return $"{request.Scheme}://{request.Host.Host}:{Port}/";
 			}
 
-			System.Console.WriteLine($"Testing2 ... {EndPoint.ToUrl()}");
 			return EndPoint.ToUrl();
 		}
 

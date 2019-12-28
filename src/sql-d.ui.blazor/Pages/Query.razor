@@ -4,9 +4,7 @@
 
 @page "/query"
 
-<h1>Query</h1>
-
-<RegistryList Registry="@Registry"></RegistryList> <!-- <- Wrong way of passing a parameter? -->
+<RegistryList Registry="@Registry"></RegistryList>
 
 @code {
 
@@ -15,7 +13,6 @@
     protected override async Task OnInitializedAsync()
     {
         Registry = await new RegistryService().GetServices();
-        //StateHasChanged(); // <- Should trigger change for async?
     }
 
 }
