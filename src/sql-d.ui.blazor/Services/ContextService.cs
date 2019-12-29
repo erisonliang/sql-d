@@ -6,9 +6,9 @@ namespace SqlD.UI.Services
 	{
 		private readonly HttpContext context;
 
-		public ContextService(HttpContext context)
+		public ContextService(IHttpContextAccessor accessor)
 		{
-			this.context = context;
+			this.context = accessor.HttpContext;
 		}
 
 		public bool Has(string cacheKey)

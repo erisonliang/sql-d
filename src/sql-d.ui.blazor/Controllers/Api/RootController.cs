@@ -14,10 +14,10 @@ namespace SqlD.UI.Controllers.Api
 		private readonly QueryService queryService;
 		private readonly RegistryService registryService;
 
-		public RootController()
+		public RootController(QueryService queryService, RegistryService registryService)
 		{
-			this.queryService = new QueryService();
-			this.registryService = new RegistryService();
+			this.queryService = queryService;
+			this.registryService = registryService;
 		}
 
 		[HttpGet]

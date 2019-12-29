@@ -2,6 +2,8 @@
 @using SqlD.UI.Models.Registry
 @using SqlD.UI.Services
 
+@inject RegistryService registryService;
+
 @page "/query"
 
 <RegistryList Registry="@Registry"></RegistryList>
@@ -12,7 +14,7 @@
     
     protected override async Task OnInitializedAsync()
     {
-        Registry = await new RegistryService().GetServices();
+        Registry = await registryService.GetServices();
     }
 
 }

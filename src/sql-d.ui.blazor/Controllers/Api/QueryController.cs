@@ -11,9 +11,9 @@ namespace SqlD.UI.Blazor.Controllers.Api
 	{
 		private readonly QueryService queryService;
 
-		public QueryController()
+		public QueryController(QueryService queryService)
 		{
-			this.queryService = new QueryService();
+			this.queryService = queryService;
 		}
 
 		[HttpGet("{q}/{s}")]

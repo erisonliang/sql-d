@@ -12,17 +12,15 @@ namespace SqlD.UI.Services
 		private readonly ConfigService config;
 		private readonly RegistryService registry;
 		private readonly ClientFactory clients;
+		private readonly QueryCache cache;
 		private readonly IQueryAction unknownAction;
 		private readonly IQueryAction describeAction;
 		private readonly IQueryAction commandAction;
 		private readonly IQueryAction queryAction;
 
-		public QueryService():this(new ConfigService(), new RegistryService(), new ClientFactory(), new UnknownAction(), new DescribeAction(), new CommandAction(), new QueryAction())
+		public QueryService(QueryCache cache, ConfigService configService, RegistryService registryService, ClientFactory clientFactory, UnknownAction unknownAction, DescribeAction describeAction, CommandAction commandAction, QueryAction queryAction)
 		{
-		}
-
-		public QueryService(ConfigService configService, RegistryService registryService, ClientFactory clientFactory, UnknownAction unknownAction, DescribeAction describeAction, CommandAction commandAction, QueryAction queryAction)
-		{
+			this.cache = cache ?? throw new ArgumentNullException(nameof(cache));
 			this.config = configService ?? throw new ArgumentNullException(nameof(configService));
 			this.registry = registryService ?? throw new ArgumentNullException(nameof(registryService));
 			this.clients = clientFactory ?? throw new ArgumentNullException(nameof(clientFactory));
@@ -38,7 +36,6 @@ namespace SqlD.UI.Services
 
 			if (cacheResult)
 			{
-				var cache = new QueryCache(httpContext);
 				if (cache.HasQueryResult())
 					return cache.GetQueryResult();
 

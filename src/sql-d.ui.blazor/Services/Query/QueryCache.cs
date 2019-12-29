@@ -8,10 +8,6 @@ namespace SqlD.UI.Services.Query
 
 		private readonly ContextService context;
 
-		public QueryCache(HttpContext context):this(new ContextService(context))
-		{ 
-		}
-
 		public QueryCache(ContextService context)
 		{
 			this.context = context;

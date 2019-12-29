@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SqlD.UI.Services;
+using SqlD.UI.Services.Client;
+using SqlD.UI.Services.Query;
 
 namespace SqlD.UI.Blazor
 {
@@ -15,11 +18,12 @@ namespace SqlD.UI.Blazor
 
         public IConfiguration Configuration { get; }
 
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(ServiceCollection services)
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddHttpContextAccessor();
+            //services.AddServices();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
