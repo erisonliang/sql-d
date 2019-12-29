@@ -5,11 +5,10 @@ namespace SqlD.UI.Services.Query
 {
     public static class ServiceInstaller
     {
-        public static void AddQuery(this ServiceCollection services)
+        public static void AddQuery(this IServiceCollection services)
         {
             services.AddActions();
             services.AddTransient<QueryCache>();
-            services.AddTransient<QueryContext>();
         }
     }
 }

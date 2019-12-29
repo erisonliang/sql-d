@@ -4,7 +4,7 @@ namespace SqlD.UI.Services.Client
 {
     public static class ServiceInstaller
     {
-        public static void AddClient(this ServiceCollection services)
+        public static void AddClient(this IServiceCollection services)
         {
             services.AddTransient<ClientFactory>();
         }

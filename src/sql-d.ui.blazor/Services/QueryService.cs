@@ -17,9 +17,11 @@ namespace SqlD.UI.Services
 		private readonly IQueryAction describeAction;
 		private readonly IQueryAction commandAction;
 		private readonly IQueryAction queryAction;
+		private readonly ContextService context;
 
-		public QueryService(QueryCache cache, ConfigService configService, RegistryService registryService, ClientFactory clientFactory, UnknownAction unknownAction, DescribeAction describeAction, CommandAction commandAction, QueryAction queryAction)
+		public QueryService(ContextService context, ConfigService configService, RegistryService registryService, ClientFactory clientFactory, UnknownAction unknownAction, DescribeAction describeAction, CommandAction commandAction, QueryAction queryAction)
 		{
+			this.context = context ?? throw new ArgumentNullException(nameof(context));
 			this.cache = cache ?? throw new ArgumentNullException(nameof(cache));
 			this.config = configService ?? throw new ArgumentNullException(nameof(configService));
 			this.registry = registryService ?? throw new ArgumentNullException(nameof(registryService));
@@ -32,20 +34,20 @@ namespace SqlD.UI.Services
 
 		public async Task<object> Query(string query, string targetUri = null, HttpContext httpContext = null, bool cacheResult = true)
 		{
-			var context = new QueryContext(query, targetUri, httpContext);
+			var queryContext = new QueryContext(query, targetUri, httpContext);
 
 			if (cacheResult)
 			{
+				var cache = new QueryCache(context);
 				if (cache.HasQueryResult())
 					return cache.GetQueryResult();
 
-				var queryResult = await GetQueryResult(context);
+				var queryResult = await GetQueryResult(queryContext);
 				return cache.SetQueryResult(queryResult);
 			}
 
-			return await GetQueryResult(context);
+			return await GetQueryResult(queryContext);
 		}
-
 		private async Task<object> GetQueryResult(QueryContext context)
 		{
 			var client = clients.GetClientOrDefault(context, config);

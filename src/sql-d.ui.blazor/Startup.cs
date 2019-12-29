@@ -18,12 +18,12 @@ namespace SqlD.UI.Blazor
 
         public IConfiguration Configuration { get; }
 
-        public void ConfigureServices(ServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddHttpContextAccessor();
-            //services.AddServices();
+            services.AddServices();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

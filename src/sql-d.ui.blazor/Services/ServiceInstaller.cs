@@ -6,7 +6,7 @@ namespace SqlD.UI.Services
 {
     public static class ServiceInstaller
     {
-        public static void AddServices(this ServiceCollection services)
+        public static void AddServices(this IServiceCollection services)
         {
             services.AddClient();
             services.AddQuery();
