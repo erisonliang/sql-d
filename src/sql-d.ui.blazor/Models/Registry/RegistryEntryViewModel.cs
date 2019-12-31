@@ -57,5 +57,10 @@ namespace SqlD.UI.Models.Registry
 			get => EndPoint.Port;
 			set => EndPoint.Port = value;
 		}
+
+		public override string ToString()
+		{
+			return $"{nameof(Name)}: {Name}, {nameof(Database)}: {Database}, {nameof(Uri)}: {Uri}";
+		}
 	}
 }

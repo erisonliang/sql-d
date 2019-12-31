@@ -30,21 +30,31 @@ namespace SqlD.UI.Blazor.Shared.Components.Registry
         
         protected void ServiceIdentityInvoke(RegistryEntryViewModel service)
         {
-            ServiceIdentityClick?.Invoke(new RegistryListEventArgs());
+            ServiceIdentityClick?.Invoke(new RegistryListEventArgs(service));
         }
         
         protected void ServiceSwaggerInvoke(RegistryEntryViewModel service)
         {
-            ServiceSwaggerClick?.Invoke(new RegistryListEventArgs());
+            ServiceSwaggerClick?.Invoke(new RegistryListEventArgs(service));
         }
 
         protected void ServiceConnectInvoke(RegistryEntryViewModel service)
         {
-            ServiceConnectClick?.Invoke(new RegistryListEventArgs());
+            ServiceConnectClick?.Invoke(new RegistryListEventArgs(service));
         }
     }
 
     public class RegistryListEventArgs : EventArgs
     {
+        public RegistryEntryViewModel Service { get; }
+
+        public RegistryListEventArgs()
+        {
+        }
+
+        public RegistryListEventArgs(RegistryEntryViewModel service)
+        {
+            Service = service;
+        }
     }
 }

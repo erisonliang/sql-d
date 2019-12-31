@@ -28,17 +28,17 @@ namespace SqlD.UI.Blazor.Pages
         
         protected void ServiceIdentityClick(RegistryListEventArgs args)
         {
-            Console.WriteLine("Service Identity Clicked!");
+            Console.WriteLine($"Service Identity Clicked! {args.Service}");
         }
 
         protected void ServiceSwaggerClick(RegistryListEventArgs args)
         {
-            Console.WriteLine("Service Swagger Clicked!");
+            Console.WriteLine($"Service Swagger Clicked! {args.Service}");
         }
 
         protected void ServiceConnectClick(RegistryListEventArgs args)
         {
-            Console.WriteLine("Service Connect Clicked!");
+            Console.WriteLine($"Service Connect Clicked! {args.Service}");
         }
     }
 }
