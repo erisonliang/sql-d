@@ -1,11 +1,14 @@
-﻿@inherits QueryBase
+﻿@using SqlD.UI.Blazor.Shared.Components.Registry
 
-@using SqlD.UI.Blazor.Shared.Components.Registry
+@inherits QueryBase
 
 @page "/query"
 
 <RegistryList 
     Registry="@Registry"
-    NewServiceClick="NewServiceClickedHandler">
+    NewServiceClick="NewServiceClick"
+    ServiceIdentityClick="ServiceIdentityClick"
+    ServiceSwaggerClick="ServiceSwaggerClick"
+    ServiceConnectClick="ServiceConnectClick">
 </RegistryList>
 

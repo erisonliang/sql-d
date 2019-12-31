@@ -3,9 +3,9 @@
 <div class="card card-default">
 	<div class="card-header text-left">
 		<span style="float: right; top: -5px; position:relative">
-			<a type="button" href="javascript: void(0)" @onclick="@NewServiceClick" class="btn btn-sm btn-outline-secondary" title="Launch new service">
+			<button @onclick="@(() => NewServiceInvoke())" class="btn btn-sm btn-outline-secondary" title="Launch new service">
 				<i class="fa fa-plus-circle"></i>
-			</a>
+			</button>
 		</span>
 		Registered Services
 	</div>
@@ -35,13 +35,13 @@
 					<td align="left">@service.RedirectedAuthorityUri</td>
 					<td align="left">@service.LastUpdated</td>
 					<td align="center">
-						<button target="_service_id_" href="@service.RedirectedUri/api/id" class="btn btn-sm btn-outline-secondary" title="Service ID for @service.RedirectedUri">
+						<button @onclick="@(() => ServiceIdentityInvoke(service))" class="btn btn-sm btn-outline-secondary" title="Service ID for @service.RedirectedUri">
 							<i class="far fa-id-card"></i>
 						</button>
-						<button target="_service_swag_" href="@service.RedirectedUri/swagger" class="btn btn-sm btn-outline-secondary" title="Swagger for @service.RedirectedUri">
+						<button @onclick="@(() => ServiceSwaggerInvoke(service))" class="btn btn-sm btn-outline-secondary" title="Swagger for @service.RedirectedUri">
 							<i class="fas fa-battery-full"></i>
 						</button>
-						<button service-uri="@service.RedirectedUri" class="btn btn-sm btn-primary" title="Connect to @service.RedirectedUri">
+						<button @onclick="@(() => ServiceConnectInvoke(service))" class="btn btn-sm btn-primary" title="Connect to @service.RedirectedUri">
 							<i class="fas fa-plug"></i>
 						</button>
 					</td>

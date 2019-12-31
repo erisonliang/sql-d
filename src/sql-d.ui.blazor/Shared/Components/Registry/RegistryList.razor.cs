@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
@@ -11,6 +12,39 @@ namespace SqlD.UI.Blazor.Shared.Components.Registry
         public RegistryViewModel Registry { get; set; } = new RegistryViewModel(new List<RegistryEntryViewModel>());
         
         [Parameter]
-        public EventCallback<MouseEventArgs> NewServiceClick { get; set; }
+        public Action<RegistryListEventArgs> NewServiceClick { get; set; }
+        
+        [Parameter]
+        public Action<RegistryListEventArgs> ServiceIdentityClick { get; set; }
+
+        [Parameter]
+        public Action<RegistryListEventArgs> ServiceSwaggerClick { get; set; }
+
+        [Parameter]
+        public Action<RegistryListEventArgs> ServiceConnectClick { get; set; }
+
+        protected void NewServiceInvoke()
+        {
+            NewServiceClick?.Invoke(new RegistryListEventArgs());
+        }
+        
+        protected void ServiceIdentityInvoke(RegistryEntryViewModel service)
+        {
+            ServiceIdentityClick?.Invoke(new RegistryListEventArgs());
+        }
+        
+        protected void ServiceSwaggerInvoke(RegistryEntryViewModel service)
+        {
+            ServiceSwaggerClick?.Invoke(new RegistryListEventArgs());
+        }
+
+        protected void ServiceConnectInvoke(RegistryEntryViewModel service)
+        {
+            ServiceConnectClick?.Invoke(new RegistryListEventArgs());
+        }
+    }
+
+    public class RegistryListEventArgs : EventArgs
+    {
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using SqlD.UI.Blazor.Shared.Components.Registry;
 using SqlD.UI.Services;
 using SqlD.UI.Models.Registry;
 
@@ -20,9 +21,24 @@ namespace SqlD.UI.Blazor.Pages
             Registry = await RegistryService.GetServices();
         }
 
-        protected void NewServiceClickedHandler(MouseEventArgs args)
+        protected void NewServiceClick(RegistryListEventArgs args)
         {
             Console.WriteLine("New Service Clicked!");
+        }
+        
+        protected void ServiceIdentityClick(RegistryListEventArgs args)
+        {
+            Console.WriteLine("Service Identity Clicked!");
+        }
+
+        protected void ServiceSwaggerClick(RegistryListEventArgs args)
+        {
+            Console.WriteLine("Service Swagger Clicked!");
+        }
+
+        protected void ServiceConnectClick(RegistryListEventArgs args)
+        {
+            Console.WriteLine("Service Connect Clicked!");
         }
     }
 }
