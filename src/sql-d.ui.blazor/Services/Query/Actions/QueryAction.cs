@@ -45,7 +45,7 @@ namespace SqlD.UI.Services.Query.Actions
 			try
 			{
 				var res = await client.PostQueryAsync(q);
-				return new QueryResultViewModel(res, await registry.GetServices(), context.HttpContext.Request);
+				return new QueryResultViewModel(res, await registry.GetServices());
 			}
 			catch (Exception err)
 			{

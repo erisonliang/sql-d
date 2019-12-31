@@ -26,7 +26,7 @@ namespace SqlD.UI.Services.Query.Actions
 			try
 			{
 				var describeResponse = await client.DescribeCommandAsync(describeRequest);
-				return new DescribeResultViewModel(describeResponse, await registry.GetServices(), context.HttpContext.Request);
+				return new DescribeResultViewModel(describeResponse, await registry.GetServices());
 			}
 			catch (Exception err)
 			{

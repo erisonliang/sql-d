@@ -7,11 +7,11 @@ namespace SqlD.UI.Models.Root
 {
 	public class RootResultViewModel
 	{
-		public RootResultViewModel(QueryResultViewModel queryResultView, RegistryViewModel registry, HttpRequest httpContextRequest)
+		public RootResultViewModel(QueryResultViewModel queryResultView, RegistryViewModel registry)
 		{
 			foreach (var result in queryResultView.Rows)
 				if (result != null && result[0].ToString() == "table")
-					Tables.Add(new RootTableResultViewModel(result[1].ToString(), registry, httpContextRequest));
+					Tables.Add(new RootTableResultViewModel(result[1].ToString(), registry));
 		}
 
 		public RootResultViewModel(string error)

@@ -15,17 +15,17 @@ namespace SqlD.UI.Models.Query
 			Error = error;
 		}
 
-		public QueryResultViewModel(QueryResponse response, RegistryViewModel registry, HttpRequest request)
+		public QueryResultViewModel(QueryResponse response, RegistryViewModel registry)
 		{
 			Query = response.Query.Select;
 			Columns = response.Query.Columns;
 			Rows = response.Rows;
 
-			Links.Add(new LinkViewModel($"/api", "tables", registry.Entries.First().GetRedirectedAuthorityUri(request), string.Empty, string.Empty));
+			Links.Add(new LinkViewModel($"/api", "tables", registry.Entries.First().RedirectedAuthorityUri, string.Empty, string.Empty));
 			foreach (var registryEntry in registry.Entries)
 			{
 				if (registryEntry.Tags.Contains("registry")) continue;
-				Links.Add(new LinkViewModel($"/api/query/{response.Query.Select}/{WebUtility.UrlEncode(registryEntry.GetRedirectedUri(request))}", "query", registryEntry.GetRedirectedAuthorityUri(request), registryEntry.GetRedirectedUri(request), registryEntry.Tags));
+				Links.Add(new LinkViewModel($"/api/query/{response.Query.Select}/{WebUtility.UrlEncode(registryEntry.RedirectedUri)}", "query", registryEntry.RedirectedAuthorityUri, registryEntry.RedirectedUri, registryEntry.Tags));
 			}
 		}
 

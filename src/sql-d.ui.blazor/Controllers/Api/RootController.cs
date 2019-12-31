@@ -27,7 +27,7 @@ namespace SqlD.UI.Controllers.Api
 			{
 				var queryResultViewModel = await queryService.Query("select * from sqlite_master", null, HttpContext, cacheResult:false);
 				var registryViewModel = await registryService.GetServices();
-				var rootResultViewModel = new RootResultViewModel((QueryResultViewModel) queryResultViewModel, registryViewModel, HttpContext.Request);
+				var rootResultViewModel = new RootResultViewModel((QueryResultViewModel) queryResultViewModel, registryViewModel);
 				return Ok(rootResultViewModel);
 			}
 			catch (Exception err)

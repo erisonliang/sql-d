@@ -15,17 +15,17 @@ namespace SqlD.UI.Models.Query
 			Error = error;
 		}
 
-		public DescribeResultViewModel(DescribeResponse response, RegistryViewModel registry, HttpRequest request)
+		public DescribeResultViewModel(DescribeResponse response, RegistryViewModel registry)
 		{
 			this.Table = response.Query.TableName;
 			this.Columns = response.Columns;
 			this.Rows = response.Results;
-			this.Links.Add(new LinkViewModel($"/api", "tables", registry.Entries.First().GetRedirectedAuthorityUri(request), string.Empty, string.Empty));
+			this.Links.Add(new LinkViewModel($"/api", "tables", registry.Entries.First().RedirectedUri, string.Empty, string.Empty));
 			foreach (var registryEntry in registry.Entries)
 			{
 				if (registryEntry.Tags.Contains("registry")) continue;
-				Links.Add(new LinkViewModel($"/api/query/describe {Table}/{WebUtility.UrlEncode(registryEntry.GetRedirectedUri(request))}", "describe", registryEntry.GetRedirectedAuthorityUri(request), registryEntry.GetRedirectedUri(request), registryEntry.Tags));
-				Links.Add(new LinkViewModel($"/api/query/select * from {Table} limit 100/{WebUtility.UrlEncode(registryEntry.GetRedirectedUri(request))}", "query", registryEntry.GetRedirectedAuthorityUri(request), registryEntry.GetRedirectedUri(request), registryEntry.Tags));
+				Links.Add(new LinkViewModel($"/api/query/describe {Table}/{WebUtility.UrlEncode(registryEntry.RedirectedUri)}", "describe", registryEntry.RedirectedAuthorityUri, registryEntry.RedirectedUri, registryEntry.Tags));
+				Links.Add(new LinkViewModel($"/api/query/select * from {Table} limit 100/{WebUtility.UrlEncode(registryEntry.RedirectedUri)}", "query", registryEntry.RedirectedAuthorityUri, registryEntry.RedirectedUri, registryEntry.Tags));
 			}
 		}
 

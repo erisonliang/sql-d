@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using SqlD.Network;
 using SqlD.Network.Server.Api.Registry.Model;
+using SqlD.UI.Services.Extensions;
 
 namespace SqlD.UI.Models.Registry
 {
@@ -19,7 +20,7 @@ namespace SqlD.UI.Models.Registry
 			this.EndPoint = new EndPoint();
 		}
 
-		public RegistryEntryViewModel(RegistryEntry entry)
+		public RegistryEntryViewModel(RegistryEntry entry, IHttpContextAccessor accessor)
 		{
 			Uri = entry.Uri;
 			Name = entry.Name;
@@ -28,12 +29,13 @@ namespace SqlD.UI.Models.Registry
 			State = entry.State.ToString();
 			Tags = string.Join(", ", entry.TagsAsArray);
 			LastUpdated = entry.LastUpdated;
-			this.EndPoint = EndPoint.FromUri(entry.Uri);
+			EndPoint = EndPoint.FromUri(entry.Uri);
+			RedirectedUri = EndPoint.GetRedirectedUri(accessor);
+			RedirectedAuthorityUri = AuthorityUri.GetRedirectedUri(accessor);
 		}
 
 		public DateTime LastUpdated { get; set; }
 		public string Tags { get; set; }
-
 		public string Name { get; set; }
 		public string State { get; set; }
 		public string Database { get; set; }
@@ -41,6 +43,8 @@ namespace SqlD.UI.Models.Registry
 		public string Uri { get; set; }
 		public EndPoint EndPoint { get; set; }
 		public bool Selected { get; set; }
+		public string RedirectedUri { get; set; }
+		public string RedirectedAuthorityUri { get; set; }
 
 		public string Host
 		{
@@ -52,27 +56,6 @@ namespace SqlD.UI.Models.Registry
 		{
 			get => EndPoint.Port;
 			set => EndPoint.Port = value;
-		}
-
-		public string GetRedirectedUri(HttpRequest request)
-		{
-			if (Host.ToLower() == "localhost")
-			{
-				return $"{request.Scheme}://{request.Host.Host}:{Port}/";
-			}
-
-			return EndPoint.ToUrl();
-		}
-
-		public string GetRedirectedAuthorityUri(HttpRequest request)
-		{
-			var endPoint = EndPoint.FromUri(AuthorityUri);
-			if (endPoint.Host.ToLower() == "localhost")
-			{
-				return $"{request.Scheme}://{request.Host.Host}:{endPoint.Port}/";
-			}
-
-			return endPoint.ToUrl();
 		}
 	}
 }
