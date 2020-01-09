@@ -39,7 +39,7 @@ namespace SqlD.UI.Blazor.Shared
         {
             EventService.Subscribe("ConnectedService", (eventName, eventValue) =>
             {
-                base.InvokeAsync(() => ConnectedService = eventValue);
+                InvokeAsync(() => ConnectedService = eventValue);
             });
         }
 

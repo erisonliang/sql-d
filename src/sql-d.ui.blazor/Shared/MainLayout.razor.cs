@@ -9,11 +9,14 @@ namespace SqlD.UI.Blazor.Shared
         private EventService EventService { get; set; }
         
         [CascadingParameter] 
-        public string ConnectedService { get; set; } = "https://localhost:50100/";
+        public string ConnectedService { get; set; }
 
         protected override void OnInitialized()
         {
-            EventService.Subscribe("ConnectedService", (eventName, eventValue) => ConnectedService = eventValue);
+            EventService.Subscribe("ConnectedService", (eventName, eventValue) =>
+            {
+                InvokeAsync(() => ConnectedService = eventValue);
+            });
         }
     }
 }
