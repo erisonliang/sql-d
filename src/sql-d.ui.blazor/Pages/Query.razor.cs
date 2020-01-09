@@ -2,8 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using SqlD.UI.Blazor.Shared.Components.Registry;
+using SqlD.UI.Blazor.Shared.Components.RegistryList;
 using SqlD.UI.Services;
 using SqlD.UI.Models.Registry;
 
@@ -14,31 +13,34 @@ namespace SqlD.UI.Blazor.Pages
         [Inject]
         private RegistryService RegistryService { get; set; }
 
-        public RegistryViewModel Registry { get; set; } = new RegistryViewModel(new List<RegistryEntryViewModel>());
+        [Inject]
+        private StorageService StorageService { get; set; }
+
+        public RegistryViewModel Registry { get; set; } = new RegistryViewModel();
     
         protected override async Task OnInitializedAsync()
         {
             Registry = await RegistryService.GetServices();
         }
 
-        protected void NewServiceClick(RegistryListEventArgs args)
+        protected void RegistryList_NewServiceClick(RegistryListEventArgs args)
         {
             Console.WriteLine("New Service Clicked!");
         }
         
-        protected void ServiceIdentityClick(RegistryListEventArgs args)
+        protected void RegistryList_ServiceIdentityClick(RegistryListEventArgs args)
         {
             Console.WriteLine($"Service Identity Clicked! {args.Service}");
         }
 
-        protected void ServiceSwaggerClick(RegistryListEventArgs args)
+        protected void RegistryList_ServiceSwaggerClick(RegistryListEventArgs args)
         {
             Console.WriteLine($"Service Swagger Clicked! {args.Service}");
         }
 
-        protected void ServiceConnectClick(RegistryListEventArgs args)
+        protected void RegistryList_ServiceConnectClick(RegistryListEventArgs args)
         {
-            Console.WriteLine($"Service Connect Clicked! {args.Service}");
+            StorageService.SetItem("SqlD_ServiceConnect_Value", $"{args.Service.Uri}").GetAwaiter().GetResult();
         }
     }
 }

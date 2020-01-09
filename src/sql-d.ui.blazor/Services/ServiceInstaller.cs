@@ -16,6 +16,7 @@ namespace SqlD.UI.Services
             services.AddTransient<RegistryService>();
             services.AddTransient<ServiceService>();
             services.AddTransient<SurfaceService>();
+            services.AddTransient<StorageService>();
         }
     }
 }

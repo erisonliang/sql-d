@@ -1,0 +1,10 @@
+﻿@inherits SqlD.UI.Blazor.Shared.Components.ServiceConnect.ServiceConnectBase
+
+<form class="form-inline">
+    <select class="form-control" @onchange="@((e) => ServiceOnChangeInvoke(e))" value="@SelectedValue">
+        @foreach (var registry in Registry.Entries)
+        {
+            <option value="@registry.Uri">@registry.Name</option>
+        }
+    </select>
+</form>

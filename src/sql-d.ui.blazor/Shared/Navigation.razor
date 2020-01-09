@@ -1,7 +1,6 @@
-﻿@using SqlD.UI.Models.Registry
-@using SqlD.UI.Services
+﻿@using SqlD.UI.Blazor.Shared.Components.ServiceConnect;
 
-@inject RegistryService registryService;
+@inherits NavigationBase
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="#">[ sql-d ]</a>
@@ -27,25 +26,10 @@
                 </NavLink>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <select class="form-control mr-sm-2">
-            @foreach (var registry in Registry.Entries)
-            {
-                <option value="@registry.Uri">@registry.Name</option>
-            }
-            </select>
-            <button class="btn btn-primary my-2 my-sm-0" type="submit">Connect</button>
-        </form>
+        <ServiceConnect 
+            Registry="@Registry"
+            SelectedValue="@ConnectedServiceValue"
+            ServiceOnChange="ServiceConnect_ServiceOnChange">
+        </ServiceConnect>
     </div>
 </nav>
-
-@code {
-
-    private RegistryViewModel Registry = new RegistryViewModel(new List<RegistryEntryViewModel>());
-    
-    protected override async Task OnInitializedAsync()
-    {
-        Registry = await registryService.GetServices();
-    }
-
-}
