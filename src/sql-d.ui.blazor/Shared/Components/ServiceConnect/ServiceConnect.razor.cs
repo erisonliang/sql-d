@@ -10,29 +10,33 @@ namespace SqlD.UI.Blazor.Shared.Components.ServiceConnect
 {
     public class ServiceConnectBase : ComponentBase
     {
+        private string connectedService = string.Empty;
+
         [Parameter]
-        public string SelectedValue { get; set; } = string.Empty;
+        public string ConnectedService
+        {
+            get => connectedService;
+            set
+            {
+                if (connectedService != value)
+                {
+                    connectedService = value;
+                    ConnectedServiceChanged.InvokeAsync(connectedService);
+                }
+            }
+        }
+
+        [Parameter]
+        public EventCallback<string> ConnectedServiceChanged { get; set; }
         
         [Parameter]
         public RegistryViewModel Registry { get; set; } = new RegistryViewModel();
         
-        [Parameter]
-        public Action<ServiceConnectEventArgs> ServiceOnChange { get; set; }
-        
         protected void ServiceOnChangeInvoke(ChangeEventArgs e)
         {
             var service = Registry.Entries.First(x => x.Uri == e.Value.ToString());
-            ServiceOnChange?.Invoke(new ServiceConnectEventArgs(service));
-        }
-    }
-
-    public class ServiceConnectEventArgs : EventArgs
-    {
-        public RegistryEntryViewModel Service { get; }
-
-        public ServiceConnectEventArgs(RegistryEntryViewModel service)
-        {
-            Service = service;
+            ConnectedService = service.Uri;
+            Console.WriteLine($"Service changed: {ConnectedService}");
         }
     }
 }

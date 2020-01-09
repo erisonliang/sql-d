@@ -12,11 +12,15 @@ namespace SqlD.UI.Blazor.Pages
     {
         [Inject]
         private RegistryService RegistryService { get; set; }
-
+        
         [Inject]
-        private StorageService StorageService { get; set; }
+        private EventService EventService { get; set; }
 
+        [Parameter]
         public RegistryViewModel Registry { get; set; } = new RegistryViewModel();
+        
+        [CascadingParameter]
+        public string ConnectedService { get; set; }
     
         protected override async Task OnInitializedAsync()
         {
@@ -40,7 +44,7 @@ namespace SqlD.UI.Blazor.Pages
 
         protected void RegistryList_ServiceConnectClick(RegistryListEventArgs args)
         {
-            StorageService.SetItem("SqlD_ServiceConnect_Value", $"{args.Service.Uri}").GetAwaiter().GetResult();
+            EventService.Dispatch("ConnectedService", args.Service.Uri);
         }
     }
 }

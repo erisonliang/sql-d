@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Components;
 using SqlD.UI.Models.Registry;
 
@@ -9,6 +8,24 @@ namespace SqlD.UI.Blazor.Shared.Components.RegistryList
     {
         [Parameter]
         public RegistryViewModel Registry { get; set; } = new RegistryViewModel();
+
+        private string connectedService;
+        [Parameter]
+        public string ConnectedService
+        {
+            get => connectedService;
+            set
+            {
+                if (connectedService != value)
+                {
+                    connectedService = value;
+                    ConnectedServiceChanged.InvokeAsync(connectedService);
+                }
+            }
+        }
+
+        [Parameter] 
+        public EventCallback<string> ConnectedServiceChanged { get; set; }
         
         [Parameter]
         public Action<RegistryListEventArgs> NewServiceClick { get; set; }
@@ -39,6 +56,7 @@ namespace SqlD.UI.Blazor.Shared.Components.RegistryList
 
         protected void ServiceConnectInvoke(RegistryEntryViewModel service)
         {
+            ConnectedService = service.Uri;
             ServiceConnectClick?.Invoke(new RegistryListEventArgs(service));
         }
     }

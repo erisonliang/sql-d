@@ -17,6 +17,7 @@ namespace SqlD.UI.Services
             services.AddTransient<ServiceService>();
             services.AddTransient<SurfaceService>();
             services.AddTransient<StorageService>();
+            services.AddSingleton<EventService>();
         }
     }
 }

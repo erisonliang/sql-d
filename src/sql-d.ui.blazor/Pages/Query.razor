@@ -4,8 +4,15 @@
 
 @page "/query"
 
+<br/>
+<br/>
+<br/>
+<br/>
+<label>The connected service is: @ConnectedService</label>
+
 <RegistryList 
     Registry="@Registry"
+    @bind-ConnectedService="ConnectedService"
     NewServiceClick="RegistryList_NewServiceClick"
     ServiceIdentityClick="RegistryList_ServiceIdentityClick"
     ServiceSwaggerClick="RegistryList_ServiceSwaggerClick"

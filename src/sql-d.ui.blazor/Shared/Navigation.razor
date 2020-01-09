@@ -28,8 +28,7 @@
         </ul>
         <ServiceConnect 
             Registry="@Registry"
-            SelectedValue="@ConnectedServiceValue"
-            ServiceOnChange="ServiceConnect_ServiceOnChange">
+            @bind-ConnectedService="ConnectedService">
         </ServiceConnect>
     </div>
 </nav>

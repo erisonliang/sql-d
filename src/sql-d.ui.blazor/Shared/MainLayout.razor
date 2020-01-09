@@ -1,9 +1,11 @@
-﻿@inherits LayoutComponentBase
+﻿@inherits MainLayoutBase
 
-<Navigation />
+<Navigation @bind-ConnectedService="ConnectedService" />
 
 <main role="container" style="padding-top: 57px; padding-bottom: 20px; ">
-    @Body
+    <CascadingValue Value="@ConnectedService">
+        @Body
+    </CascadingValue>
 </main>
 
 <footer class="footer text-center bg-dark text-light fixed-bottom">
