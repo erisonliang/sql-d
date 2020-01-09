@@ -36,7 +36,6 @@ namespace SqlD.UI.Blazor.Shared.Components.ServiceConnect
         {
             var service = Registry.Entries.First(x => x.Uri == e.Value.ToString());
             ConnectedService = service.Uri;
-            Console.WriteLine($"Service changed: {ConnectedService}");
         }
     }
 }

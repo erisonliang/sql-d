@@ -26,7 +26,7 @@
 			<tbody>
 			@foreach (var service in Registry.Entries.OrderBy(x => x.Tags))
 			{
-				<tr class="@(service.Uri == ConnectedService ? "table-active" : "")">	
+				<tr class="@(service.Uri.Trim() == ConnectedService?.Trim() ? "table-active" : "")">	
 					<td align="left">@service.Name</td>
 					<td align="left">@service.Database</td>
 					<td align="left">@service.Tags</td>

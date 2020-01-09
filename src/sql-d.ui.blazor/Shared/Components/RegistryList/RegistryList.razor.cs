@@ -6,7 +6,7 @@ namespace SqlD.UI.Blazor.Shared.Components.RegistryList
 {
     public class RegistryListBase : ComponentBase
     {
-        private string connectedService;
+        private string connectedService = string.Empty;
 
         [Parameter]
         public RegistryViewModel Registry { get; set; } = new RegistryViewModel();

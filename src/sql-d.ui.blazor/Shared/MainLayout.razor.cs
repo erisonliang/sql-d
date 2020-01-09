@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using SqlD.UI.Services;
 
@@ -7,9 +8,9 @@ namespace SqlD.UI.Blazor.Shared
     {
         [Inject]
         private EventService EventService { get; set; }
-        
+
         [CascadingParameter] 
-        public string ConnectedService { get; set; }
+        public string ConnectedService { get; set; } = "http://localhost:50100/";
 
         protected override void OnInitialized()
         {

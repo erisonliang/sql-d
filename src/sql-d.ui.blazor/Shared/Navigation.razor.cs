@@ -10,11 +10,11 @@ namespace SqlD.UI.Blazor.Shared
         private string connectedService = string.Empty;
 
         [Inject]
-        private RegistryService RegistryService { get; set; }
-        
-        [Inject]
         private EventService EventService { get; set; }
 
+        [Inject]
+        private RegistryService RegistryService { get; set; }
+        
         [Parameter]
         public string ConnectedService
         {
